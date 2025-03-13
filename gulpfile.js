@@ -6,10 +6,6 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');  
 const webpackStream = require('webpack-stream');  
 
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
-
 const copy = require('gulp-copy');
 
 const clean = require('gulp-clean')
@@ -26,22 +22,19 @@ task('clean', () => {
 //Задача copy
 task('copy', () => {
     return src('./src/public/**/*')
-      .pipe(copy('./build', { prefix: 1 })) // Копируем с сохранением структуры папок
+      .pipe(dest('./build')) // Простое копирование без сохранения структуры public
       .pipe(browserSync.stream())
 })
 
 // SCSS задача
 task('scss', () => {
     return src('./src/style/**/*.scss')
-      .pipe(sourcemaps.init()) // Инициализация sourcemaps
       .pipe(sass({ 
-        outputStyle: 'expanded' //Отключить минификацию CSS в режиме разработки
+        outputStyle: 'expanded' 
       }).on('error', sass.logError))
-      .pipe(postcss([autoprefixer()])) // Автопрефиксы 
-      .pipe(sourcemaps.write('.')) // Запись sourcemaps 
       .pipe(dest('./build/css'))
       .pipe(browserSync.stream())
-  })
+})
 
 task('pug', () => {  
     return src('./src/pug/views/**/*.pug')  
