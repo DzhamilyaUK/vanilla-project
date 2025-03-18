@@ -29,6 +29,7 @@
     "not dead"
   ],
   "dependencies": {
-    "core-js": "^3.41.0"
+    "core-js": "^3.41.0",
+    "normalize.css": "^8.0.1"
   }
 }

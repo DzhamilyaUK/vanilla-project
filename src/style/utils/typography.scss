@@ -1,0 +1,135 @@
+@import 'breakpoints'; // Импортируем файл с брейкпоинтами, чтобы использовать миксин @mobile
+
+
+@mixin text-h1 {
+    font-size: var(--desktop-h1-font-size);
+    line-height: var(--desktop-h1-line-height);
+    font-weight: 700;
+  
+    @include mobile {
+      font-size: var(--mobile-h1-font-size);
+      line-height: var(--mobile-h1-line-height);
+    }
+  }
+  
+  @mixin text-h2 {
+    font-size: var(--desktop-h2-font-size);
+    line-height: var(--desktop-h2-line-height);
+    font-weight: 700;
+  
+    @include mobile {
+      font-size: var(--mobile-h2-font-size);
+      line-height: var(--mobile-h2-line-height);
+    }
+  }
+  
+  @mixin text-h3 {
+    font-size: var(--desktop-h3-font-size);
+    line-height: var(--desktop-h3-line-height);
+    font-weight: 700;
+  
+    @include mobile {
+      font-size: var(--mobile-h3-font-size);
+      line-height: var(--mobile-h3-line-height);
+    }
+  }
+  
+  @mixin text-h4 {
+    font-size: var(--desktop-h4-font-size);
+    line-height: var(--desktop-h4-line-height);
+    font-weight: 700;
+  
+    @include mobile {
+      font-size: var(--mobile-h4-font-size);
+      line-height: var(--mobile-h4-line-height);
+    }
+  }
+  
+  @mixin text-accent {
+    font-size: var(--desktop-accent-font-size);
+    line-height: var(--desktop-accent-line-height);
+    font-weight: 400;
+  
+    @include mobile {
+      font-size: var(--mobile-accent-font-size);
+      line-height: var(--mobile-accent-line-height);
+    }
+  }
+  
+  @mixin text-button {
+      font-size: var(--desktop-button-font-size);
+      line-height: var(--desktop-button-line-height);
+      font-weight: 500;
+  
+      @include mobile {
+        font-size: var(--mobile-button-font-size);
+        line-height: var(--mobile-button-line-height);
+      }
+    }
+  
+    @mixin text-tab {
+      font-size: var(--desktop-tab-font-size);
+      line-height: var(--desktop-tab-line-height);
+      font-weight: 500;
+  
+      @include mobile {
+        font-size: var(--mobile-tab-font-size);
+        line-height: var(--mobile-tab-line-height);
+      }
+    }
+  
+    @mixin text-body {
+      font-size: var(--desktop-body-font-size);
+      line-height: var(--desktop-body-line-height);
+      font-weight: 400;
+  
+      @include mobile {
+        font-size: var(--mobile-body-font-size);
+        line-height: var(--mobile-body-line-height);
+      }
+    }
+  
+    @mixin text-body-bold {
+      font-size: var(--desktop-body-bold-font-size);
+      line-height: var(--desktop-body-bold-line-height);
+      font-weight: 600;
+  
+      @include mobile {
+        font-size: var(--mobile-body-bold-font-size);
+        line-height: var(--mobile-body-bold-line-height);
+      }
+    }
+  
+    @mixin text-body-small {
+      font-size: var(--desktop-body-small-font-size);
+      line-height: var(--desktop-body-small-line-height);
+      font-weight: 400;
+  
+      @include mobile {
+        font-size: var(--mobile-body-small-font-size);
+        line-height: var(--mobile-body-small-line-height);
+      }
+    }
+  
+    @mixin text-body-small-bold {
+      font-size: var(--desktop-body-small-bold-font-size);
+      line-height: var(--desktop-body-small-bold-line-height);
+      font-weight: 600;
+  
+      @include mobile {
+        font-size: var(--mobile-body-small-bold-font-size);
+        line-height: var(--mobile-body-small-bold-line-height);
+      }
+    }
+  
+    @mixin text-caption {
+      font-size: var(--desktop-caption-font-size);
+      line-height: var(--desktop-caption-line-height);
+      font-weight: 500;
+  
+      @include mobile {
+        font-size: var(--mobile-caption-font-size);
+        line-height: var(--mobile-caption-line-height);
+      }
+    }
+  
