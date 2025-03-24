@@ -1,10 +1,14 @@
+const path = require('path');
+
 module.exports = {  
-    context: `${__dirname}/src/js/`,  
+    context: `${__dirname}/src/js/`, 
+    mode: 'development', 
     entry: {  
       app: './main.js',  
     },  
     output: {  
-      filename: '[name].js',  
+      filename: '[name].js',
+      path: path.resolve(__dirname, 'build'),  
     },  
     resolve: {  
       alias: {  
@@ -20,7 +24,7 @@ module.exports = {
             test: /\.js$/,
             use: 'babel-loader',
             exclude: '/node_modules/'
-          }
+          },
           ]
       }
   };

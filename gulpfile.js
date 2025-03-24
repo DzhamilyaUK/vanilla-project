@@ -21,14 +21,15 @@ task('clean', () => {
 
 //Задача copy
 task('copy', () => {
-    return src('./src/public/**/*')
+    return src(['./src/public/**/*', './src/assets/**/*'])
       .pipe(dest('./build')) // Простое копирование без сохранения структуры public
       .pipe(browserSync.stream())
 })
 
+
 // SCSS задача
 task('scss', () => {
-    return src('./src/style/**/*.scss')
+    return src('./src/style/main.scss')
       .pipe(sass({ 
         outputStyle: 'expanded' 
       }).on('error', sass.logError))

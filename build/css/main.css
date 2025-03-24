@@ -1,0 +1,359 @@
+html {
+  --card-color: #ffffff;
+  --app-bg: #f2f3f5;
+  --gray-color-1: #f5f6f7;
+  --gray-color-2: #eff0f2;
+  --gray-color-3: #e6e8eb;
+  --gray-color-4: #dbdbdb;
+  --gray-color-5: #d2d3d5;
+  --gray-color-6: #e6e7e8;
+  --text-color: #151920;
+  --text-secondary-color: #6d6f73;
+  --text-carousel-color: #ffffff;
+  --text-contrast-filled-color: #ffffff;
+  --text-content-secondary-color: #a0a0a0;
+  --divider-color: #f2f3f5;
+  --border-color: #e6e7e8;
+  --susi-red-default-color: #ff3048;
+  --susi-red-light-1-color: #ff6879;
+  --susi-red-light-2-color: #ffebef;
+  --susi-red-light-3-color: #ff8896;
+  --purple-default-color: #6c34ba;
+  --purple-light-color: #f3e8ff;
+  --ultramarine-default-color: #2949c6;
+  --ultramarine-dark-color: #253db0;
+  --ultramarine-light-1-color: #6e84ff;
+  --ultramarine-light-2-color: #e8ecff;
+  --susi-blue-default-color: #2aa1ef;
+  --susi-blue-light-color: #ecf5fc;
+  --cyan-default-color: #35bbf1;
+  --cyan-light-1-color: #6ad6fa;
+  --cyan-light-2-color: #e7f8ff;
+  --electric-green-default-color: #71c000;
+  --electric-green-light-1-color: #aee729;
+  --electric-green-light-2-color: #eff8e0;
+}
+
+/* Basic reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Custom additions */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* More modern way to handle sizing */
+}
+
+@font-face {
+  font-family: "Onest";
+  src: url("../fonts/Onest-Regular.woff2") format("woff2"), url("../fonts/Onest-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+body {
+  font-family: "Onest", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+@media screen and (max-width: 767px) {
+  html {
+    font-size: calc(10px + 13 * (100vw - 375px) / 447);
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: calc(10px + 4 * (100vw - 768px) / 255);
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: calc(8px + 2 * (100vw - 1024px) / 416);
+  }
+}
+
+html {
+  --card-color: #ffffff;
+  --app-bg: #f2f3f5;
+  --gray-color-1: #f5f6f7;
+  --gray-color-2: #eff0f2;
+  --gray-color-3: #e6e8eb;
+  --gray-color-4: #dbdbdb;
+  --gray-color-5: #d2d3d5;
+  --gray-color-6: #e6e7e8;
+  --text-color: #151920;
+  --text-secondary-color: #6d6f73;
+  --text-carousel-color: #ffffff;
+  --text-contrast-filled-color: #ffffff;
+  --text-content-secondary-color: #a0a0a0;
+  --divider-color: #f2f3f5;
+  --border-color: #e6e7e8;
+  --susi-red-default-color: #ff3048;
+  --susi-red-light-1-color: #ff6879;
+  --susi-red-light-2-color: #ffebef;
+  --susi-red-light-3-color: #ff8896;
+  --purple-default-color: #6c34ba;
+  --purple-light-color: #f3e8ff;
+  --ultramarine-default-color: #2949c6;
+  --ultramarine-dark-color: #253db0;
+  --ultramarine-light-1-color: #6e84ff;
+  --ultramarine-light-2-color: #e8ecff;
+  --susi-blue-default-color: #2aa1ef;
+  --susi-blue-light-color: #ecf5fc;
+  --cyan-default-color: #35bbf1;
+  --cyan-light-1-color: #6ad6fa;
+  --cyan-light-2-color: #e7f8ff;
+  --electric-green-default-color: #71c000;
+  --electric-green-light-1-color: #aee729;
+  --electric-green-light-2-color: #eff8e0;
+}
+
+html {
+  --main-font: "Onest", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --desktop-h1-font-size: 5.6rem;
+  --desktop-h1-line-height: 6.2rem;
+  --desktop-h2-font-size: 4rem;
+  --desktop-h2-line-height: 4.8rem;
+  --desktop-h3-font-size: 2rem;
+  --desktop-h3-line-height: 2.8rem;
+  --desktop-h4-font-size: 2.2rem;
+  --desktop-h4-line-height: 3rem;
+  --desktop-accent-font-size: 2.4rem;
+  --desktop-accent-line-height: 3.2rem;
+  --desktop-button-font-size: 1.6rem;
+  --desktop-button-line-height: 2.4rem;
+  --desktop-tab-font-size: 1.8rem;
+  --desktop-tab-line-height: 2.4rem;
+  --desktop-body-font-size: 1.8rem;
+  --desktop-body-line-height: 2.6rem;
+  --desktop-body-bold-font-size: 1.8rem;
+  --desktop-body-bold-line-height: 2.6rem;
+  --desktop-body-small-font-size: 1.4rem;
+  --desktop-body-small-line-height: 2rem;
+  --desktop-body-small-bold-font-size: 1.4rem;
+  --desktop-body-small-bold-line-height: 2rem;
+  --desktop-caption-font-size: 1.2rem;
+  --desktop-caption-line-height: 1.6rem;
+  --mobile-h1-font-size: 3.2rem;
+  --mobile-h1-line-height: 4rem;
+  --mobile-h2-font-size: 2.8rem;
+  --mobile-h2-line-height: 3.6rem;
+  --mobile-h3-font-size: 2.2rem;
+  --mobile-h3-line-height: 3rem;
+  --mobile-h4-font-size: 1.8rem;
+  --mobile-h4-line-height: 2.6rem;
+  --mobile-accent-font-size: 2rem;
+  --mobile-accent-line-height: 2.8rem;
+  --mobile-button-font-size: 1.4rem;
+  --mobile-button-line-height: 2.2rem;
+  --mobile-tab-font-size: 1.8rem;
+  --mobile-tab-line-height: 2.4rem;
+  --mobile-body-font-size: 1.6rem;
+  --mobile-body-line-height: 2.4rem;
+  --mobile-body-bold-font-size: 1.6rem;
+  --mobile-body-bold-line-height: 2.4rem;
+  --mobile-body-small-font-size: 1.2rem;
+  --mobile-body-small-line-height: 1.8rem;
+  --mobile-body-small-bold-font-size: 1.2rem;
+  --mobile-body-small-bold-line-height: 1.8rem;
+  --mobile-caption-font-size: 1rem;
+  --mobile-caption-line-height: 1.2rem;
+}
+
+.text-h1 {
+  font-size: var(--desktop-h1-font-size);
+  line-height: var(--desktop-h1-line-height);
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-h1 {
+    font-size: var(--mobile-h1-font-size);
+    line-height: var(--mobile-h1-line-height);
+  }
+}
+
+.text-h2 {
+  font-size: var(--desktop-h2-font-size);
+  line-height: var(--desktop-h2-line-height);
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-h2 {
+    font-size: var(--mobile-h2-font-size);
+    line-height: var(--mobile-h2-line-height);
+  }
+}
+
+.text-h3 {
+  font-size: var(--desktop-h3-font-size);
+  line-height: var(--desktop-h3-line-height);
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-h3 {
+    font-size: var(--mobile-h3-font-size);
+    line-height: var(--mobile-h3-line-height);
+  }
+}
+
+.text-h4 {
+  font-size: var(--desktop-h4-font-size);
+  line-height: var(--desktop-h4-line-height);
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-h4 {
+    font-size: var(--mobile-h4-font-size);
+    line-height: var(--mobile-h4-line-height);
+  }
+}
+
+.text-accent {
+  font-size: var(--desktop-accent-font-size);
+  line-height: var(--desktop-accent-line-height);
+  font-weight: 400;
+}
+@media (max-width: 767px) {
+  .text-accent {
+    font-size: var(--mobile-accent-font-size);
+    line-height: var(--mobile-accent-line-height);
+  }
+}
+
+.text-button {
+  font-size: var(--desktop-button-font-size);
+  line-height: var(--desktop-button-line-height);
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  .text-button {
+    font-size: var(--mobile-button-font-size);
+    line-height: var(--mobile-button-line-height);
+  }
+}
+
+.text-tab {
+  font-size: var(--desktop-tab-font-size);
+  line-height: var(--desktop-tab-line-height);
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  .text-tab {
+    font-size: var(--mobile-tab-font-size);
+    line-height: var(--mobile-tab-line-height);
+  }
+}
+
+.text-body {
+  font-size: var(--desktop-body-font-size);
+  line-height: var(--desktop-body-line-height);
+  font-family: "Onest";
+  font-weight: 400;
+}
+@media (max-width: 767px) {
+  .text-body {
+    font-size: var(--mobile-body-font-size);
+    line-height: var(--mobile-body-line-height);
+  }
+}
+
+.text-body-bold {
+  font-size: var(--desktop-body-bold-font-size);
+  line-height: var(--desktop-body-bold-line-height);
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .text-body-bold {
+    font-size: var(--mobile-body-bold-font-size);
+    line-height: var(--mobile-body-bold-line-height);
+  }
+}
+
+.text-body-small {
+  font-size: var(--desktop-body-small-font-size);
+  line-height: var(--desktop-body-small-line-height);
+  font-weight: 400;
+}
+@media (max-width: 767px) {
+  .text-body-small {
+    font-size: var(--mobile-body-small-font-size);
+    line-height: var(--mobile-body-small-line-height);
+  }
+}
+
+.text-body-small-bold {
+  font-size: var(--desktop-body-small-bold-font-size);
+  line-height: var(--desktop-body-small-bold-line-height);
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .text-body-small-bold {
+    font-size: var(--mobile-body-small-bold-font-size);
+    line-height: var(--mobile-body-small-bold-line-height);
+  }
+}
+
+.text-caption {
+  font-size: var(--desktop-caption-font-size);
+  line-height: var(--desktop-caption-line-height);
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  .text-caption {
+    font-size: var(--mobile-caption-font-size);
+    line-height: var(--mobile-caption-line-height);
+  }
+}
+
+body {
+  font-family: "Onest", sans-serif;
+}

@@ -1,0 +1,14 @@
+// Импортируем базовые стили
+@import './global/base.scss';
+@import './global/breakpoints.scss';
+@import './global/typography.scss';
+
+// todo Импорт компонентов
+
+//Утилиты
+@import './utils/typography.scss'; //Миксины для типографии
+
+
+body {
+    font-family: 'Onest', sans-serif; //только для генерации файла, надо будет переопределить
+  }

@@ -1,4 +1,5 @@
-@import 'breakpoints'; // Импортируем файл с брейкпоинтами, чтобы использовать миксин @mobile
+@import '../global/breakpoints.scss'; // Импортируем файл с брейкпоинтами, чтобы использовать миксин @mobile
+
 
 
 @mixin text-h1 {
@@ -81,6 +82,7 @@
     @mixin text-body {
       font-size: var(--desktop-body-font-size);
       line-height: var(--desktop-body-line-height);
+      font-family: 'Onest';
       font-weight: 400;
   
       @include mobile {
