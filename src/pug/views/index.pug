@@ -4,11 +4,23 @@ html(lang="ru")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Моя первая страница на Pug
-    
     link(rel="stylesheet" href="css/main.css")
+  
   body
+    //- Подключаем миксин тегов
+    include ../components/tag.pug
+
     h1.text-h1 Тест шрифта
     p.text-body Проверка подключения
 
-    script(src="js/app.js")
+    //- Новая кнопка
+    button.button.button--type-main.button--adaptive-mobile(disabled)
+      span.button__icon.button__icon--visible
+      | Click me
 
+
+  +tag('Воспитание', ['color-cyan', 'adaptive-desktop'])
+  +tag('Учеба', ['color-purple', 'state-pressed'])
+  +tag('Спорт', ['color-blue', 'type-event'])
+
+    script(src="js/app.js")
