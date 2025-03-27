@@ -18,9 +18,10 @@ html(lang="ru")
       span.button__icon.button__icon--visible
       | Click me
 
-
-  +tag('Воспитание', ['color-cyan', 'adaptive-desktop'])
-  +tag('Учеба', ['color-purple', 'state-pressed'])
-  +tag('Спорт', ['color-blue', 'type-event'])
+    //- Контейнер для тегов
+    .tags-container
+      +tag('Воспитание', ['color-cyan', 'adaptive-desktop'])
+      +tag('EdMat', ['color-purple', 'state-pressed'])
+      +tag('Event', ['color-blue', 'type-event'])
 
     script(src="js/app.js")
