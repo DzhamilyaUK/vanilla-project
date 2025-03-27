@@ -64,7 +64,7 @@ task("webpack", () => {
 });
 
 task("watch", () => {
-  watch("./src/pug/**/*.pug", series("pug"));
+  watch(["./src/pug/**/*.pug", "./src/assets/icons/**/*"], series("pug"));
   watch("./src/js/**/*.js", series("webpack")); //Watcher для всех js-файлов проекта
   watch("./src/style/**/*.scss", series("scss")); // Добавляем отслеживание SCSS
   watch("./src/public/**/*", series("copy")); // Добавляем отслеживание public
