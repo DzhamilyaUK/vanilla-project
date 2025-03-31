@@ -1,15 +1,16 @@
-// Импортируем базовые стили
-@import "./global/base.scss";
-@import "./global/breakpoints.scss";
-@import "./global/typography.scss";
+// Import normalize
+@import "../../node_modules/normalize.css/normalize";
 
-// todo Импорт компонентов
-@import "./components/button/button.scss";
-@import "./components/tags/tag.scss";
+// Import utils
+@import "utils/typography";
+@import "utils/breakpoints";
 
-//Утилиты
-@import "./utils/typography.scss"; //Миксины для типографии
+// Import global styles;
+@import "global/reset";
+@import "global/colors";
+@import "global/typography";
+@import "global/base";
 
-body {
-  font-family: "Onest", sans-serif; //только для генерации файла, надо будет переопределить
-}
+// Import components
+@import "components/button";
+@import "components/tag";

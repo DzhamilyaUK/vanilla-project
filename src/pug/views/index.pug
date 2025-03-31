@@ -20,8 +20,12 @@ html(lang="ru")
 
     //- Контейнер для тегов
     .tags-container
-      +tag('Воспитание', ['color-cyan', 'adaptive-desktop'])
-      +tag('EdMat', ['color-purple', 'state-pressed'])
-      +tag('Event', ['color-blue', 'type-event'])
+      +tag Tag
+      +tag({ tag: 'a' })(href='#') Tag
+      +tag({ dense: true }) Tag
+      +tag({ dense: true, tag: 'a' })(href='#') Tag
+      +tag({ dense: true, color: '#0EBEF1' }) Tag
+      +tag({ dense: true, color: 'red' }) Tag
+      include ../../assets/icons/link.svg
 
     script(src="js/app.js")

@@ -1,13 +1,20 @@
+mixin tag(props={})
 
-mixin tag(text, modifiers = [], isPressed = false)
-  - 
-    const baseClass = 'tag'
-    const pressedClass = isPressed ? 'tag--state-pressed' : ''
-    const allModifiers = modifiers.map(m => `${baseClass}--${m}`)
-    const classList = [baseClass, ...allModifiers, pressedClass].filter(Boolean).join(' ')
+  - const { dense = false, tag = 'div', color = '' } = props
 
-  div(class=classList role="button")&attributes(attributes)
-    span.tag__text= text
+  #{tag}.tag(class={ _dense: dense }, style=`${color && dense ? `color: ${color}` : ''}`)&attributes(attributes)
+    .tag__inner
+      block
+// TODO Удалить
+//mixin tag(text, modifiers = [], isPressed = false)
+//  -
+//    const baseClass = 'tag'
+//    const pressedClass = isPressed ? 'tag--state-pressed' : ''
+//    const allModifiers = modifiers.map(m => `${baseClass}--${m}`)
+//    const classList = [baseClass, ...allModifiers, pressedClass].filter(Boolean).join(' ')
+//
+//  div(class=classList role="button")&attributes(attributes)
+//    span.tag__text= text
 
 //- Примеры использования
 //- +tag('Образование', ['type-educational-materials', 'adaptive-desktop', 'color-cyan'])
