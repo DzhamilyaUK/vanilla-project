@@ -9,6 +9,8 @@ html(lang="ru")
   body
     //- Подключаем миксин тегов
     include ../components/tag.pug
+    include ../components/link.pug
+    include ../components/pagination.pug 
 
     h1.text-h1 Тест шрифта
     p.text-body Проверка подключения
@@ -27,5 +29,30 @@ html(lang="ru")
       +tag({ dense: true, color: '#0EBEF1' }) Tag
       +tag({ dense: true, color: 'red' }) Tag
       include ../../assets/icons/link.svg
+    //- Примеры использования ссылок
+    div.links-section
+      h2 Примеры ссылок
+      div.links-container
 
+        +link({ href: '#', icon: 'link' }) Link
+        +link({ href: '#', large: true, icon: 'link' }) Link
+
+        +link({ href: '#' }) Link
+        +link({ href: '#', large: true }) Link
+
+        +link({ href: '#', bold: true, icon: 'socials' }) Link 
+
+    //- Секция пагинации (добавляем здесь)
+    section.pagination-container
+      h2 Демонстрация пагинации
+      
+      //- Большая версия
+      +pagination({
+        large: true,
+        currentPage: 3,
+        totalPages: 8
+      })
+
+ 
+        
     script(src="js/app.js")

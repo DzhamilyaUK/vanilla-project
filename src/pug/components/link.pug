@@ -1,3 +1,24 @@
-mixin tag(props={})
+mixin link(props={})
+  - const { tag = 'a', large = false, icon = '', bold = false, href = '#' } = props
+  //- tag: HTML тег для ссылки (по умолчанию 'a')
+  //- large: boolean, определяет размер ссылки (large или small, по умолчанию small)
+  //- icon: string,  имя иконки ('vk', 'chain' или '' - без иконки, по умолчанию '')
+  //- bold: boolean, делает текст ссылки жирным (по умолчанию false)
+  //- href: string,  адрес ссылки (по умолчанию '#')
 
-  - const { tag = 'a', large = false, icon = '', bold = false } = props
+  #{tag}.link(
+    class=[
+      {'link--large': large},
+      {'link--with-icon': icon !== ''},
+      {'link--bold': bold}
+    ]
+    href=href
+    icon=(icon || false)
+  )&attributes(attributes)
+    if icon === 'socials'
+      span.link__icon
+        include ../../assets/icons/socials.svg
+    else if icon === 'link'
+      span.link__icon
+        include ../../assets/icons/link.svg
+    block

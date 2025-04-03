@@ -5,33 +5,3 @@ mixin tag(props={})
   #{tag}.tag(class={ _dense: dense }, style=`${color && dense ? `color: ${color}` : ''}`)&attributes(attributes)
     .tag__inner
       block
-// TODO Удалить
-//mixin tag(text, modifiers = [], isPressed = false)
-//  -
-//    const baseClass = 'tag'
-//    const pressedClass = isPressed ? 'tag--state-pressed' : ''
-//    const allModifiers = modifiers.map(m => `${baseClass}--${m}`)
-//    const classList = [baseClass, ...allModifiers, pressedClass].filter(Boolean).join(' ')
-//
-//  div(class=classList role="button")&attributes(attributes)
-//    span.tag__text= text
-
-//- Примеры использования
-//- +tag('Образование', ['type-educational-materials', 'adaptive-desktop', 'color-cyan'])
-//- +tag('Событие', ['type-event', 'state-default'], true)(data-category="education")
-//- +tag('Наука', ['adaptive-mobile', 'color-green'])(onclick="handleTagClick()")
-
-//- Расширенные параметры
-//- +tag(текст, [модификаторы], isPressed)(доп.атрибуты);
-
-//- Цветовые схемы
-//- +tag('Тег', ['color-cyan'])
-
-//- Адаптивные версии
-//- +tag('Тег', ['adaptive-desktop'])
-
-//- Типы контента
-//- +tag('Тег', ['type-educational-materials'])
-
-//- Состояния
-//- +tag('Тег', ['state-default'], true)
