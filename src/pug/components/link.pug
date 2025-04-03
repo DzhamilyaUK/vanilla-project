@@ -1,5 +1,11 @@
 mixin link(props={})
-  - const { tag = 'a', large = false, icon = '', bold = false, href = '#' } = props
+  -
+    const {
+      tag = 'a',
+      large = false,
+      icon = '', // {'socials'}
+      bold = false // {boolean} адрес ссылки (по умолчанию '#')
+    } = props
   //- tag: HTML тег для ссылки (по умолчанию 'a')
   //- large: boolean, определяет размер ссылки (large или small, по умолчанию small)
   //- icon: string,  имя иконки ('vk', 'chain' или '' - без иконки, по умолчанию '')
@@ -7,13 +13,11 @@ mixin link(props={})
   //- href: string,  адрес ссылки (по умолчанию '#')
 
   #{tag}.link(
-    class=[
-      {'link--large': large},
-      {'link--with-icon': icon !== ''},
-      {'link--bold': bold}
-    ]
-    href=href
-    icon=(icon || false)
+    class={
+      'link--large': large,
+      'link--with-icon': icon,
+      'link--bold': bold
+    }
   )&attributes(attributes)
     if icon === 'socials'
       span.link__icon

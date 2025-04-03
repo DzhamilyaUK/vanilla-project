@@ -34,7 +34,7 @@ html(lang="ru")
       h2 Примеры ссылок
       div.links-container
 
-        +link({ href: '#', icon: 'link' }) Link
+        +link({ icon: 'link' })(href='#', data-attr, aria-label='link') Link
         +link({ href: '#', large: true, icon: 'link' }) Link
 
         +link({ href: '#' }) Link

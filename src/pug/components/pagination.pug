@@ -4,13 +4,13 @@ mixin pagination(props={})
       tag = 'nav',
       currentPage = 1,
       totalPages = 5,
-      large = false,
-      showArrows = true,
+      large = false, // TODO Убрать
+      showArrows = true, // TODO Убрать
       disabled = false,
       baseUrl = '/page/'
     } = props;
 
-    
+    // TODO Убрать
     let visiblePages = [];
     const maxVisible = 5;
     if (totalPages <= maxVisible) {
@@ -27,6 +27,7 @@ mixin pagination(props={})
       ];
     }
 
+    // TODO Переделать запись класса
   #{tag}.pagination(
     class=[
       {'pagination--large': large},
@@ -35,6 +36,7 @@ mixin pagination(props={})
     aria-label="Навигация по страницам"
   )&attributes(attributes)
     if showArrows
+      // TODO Сделать ссылкой
       button.pagination__arrow.pagination__prev(
         type="button"
         class={'--disabled': currentPage === 1 || disabled}
@@ -42,7 +44,6 @@ mixin pagination(props={})
         aria-label="Предыдущая страница"
         data-page=currentPage - 1
       )
-        span.pagination__icon
           include ../../assets/icons/chevron-left.svg
 
     .pagination__pages
@@ -64,6 +65,7 @@ mixin pagination(props={})
             )= page
 
     if showArrows
+      // TODO Сделать ссылкой
       button.pagination__arrow.pagination__next(
         type="button"
         class={'--disabled': currentPage === totalPages || disabled}

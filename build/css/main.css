@@ -896,13 +896,7 @@ button.tag._dense:hover::before {
   line-height: 2.6rem;
 }
 .link--with-icon {
-  display: inline-flex;
-  align-items: center;
   color: var(--text-color); /* Цвет для текста ссылки с иконкой */
-  gap: 0.8rem;
-}
-.link--with-icon[icon=link] .link__icon svg {
-  stroke: var(--ultramarine-default-color) !important; /* Цвет для SVG иконки link */
 }
 .link[icon=socials] {
   gap: 1.2rem;
@@ -923,6 +917,7 @@ button.tag._dense:hover::before {
   height: 2rem;
   flex-shrink: 0;
   border: none;
+  color: var(--ultramarine-default-color);
 }
 .link__icon svg {
   width: 100%;
