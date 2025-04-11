@@ -1,5 +1,6 @@
 // TODO Применить миксины для типографии
 .link {
+  @include text-body-small;
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -9,13 +10,19 @@
   align-items: center;
   gap: 0.8rem;
   cursor: pointer;
-  transition: color 0.3s ease, border-color 0.3s ease, text-decoration 0.3s ease; // Добавляем transition для подчеркивания
+  transition: all 0.3s ease; // Добавляем transition для подчеркивания
   text-decoration: none; // Убираем подчеркивание по умолчанию.
 
   // Размеры
   &--large {
-    font-size: 1.8rem;
-    line-height: 2.6rem;
+    @include text-body;
+    gap: 1.2rem;
+  }
+
+  &--bold {
+    @include text-body-small-bold;
+    text-decoration: none;
+    gap: 1.2rem;
   }
 
   &--with-icon {
@@ -23,25 +30,26 @@
   }
 
   // TODO Применить для стиля bold
-  &[icon="socials"] {
-    gap: 1.2rem;
-  }
+  //&[icon="socials"] {
+  //  gap: 1.2rem;
+  //}
 
-  &:hover {
+  &:hover{
     color: var(--ultramarine-default-color);
-    text-decoration: underline; // Подчеркиваем при наведении
-  }
-
-  // TODO Применить для стиля bold
-  &--with-icon[icon="socials"] {
-    &:hover {
-      text-decoration: none; // Убираем подчеркивание
+    text-decoration: underline;
+    &.link--bold {
+      text-decoration: none;
     }
   }
+
+
 
   &:active {
     color: var(--ultramarine-dark-color);
     text-decoration: underline; // Подчеркиваем при нажатии
+    &.link--bold {
+      text-decoration: none;
+    }
   }
 
   &__icon {
@@ -54,28 +62,29 @@
     svg {
       width: 100%;
       height: 100%;
-      stroke: inherit; 
     }
   }
 
-  &:active &__icon {
-    border-color: var(--ultramarine-dark-color);
-  }
-  &--large &__icon {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
-
-  // TODO Применить для стиля bold
-  &--bold {
-    // Стиль для жирного текста
-    font-weight: 700;
+  &:active {
+    .link__icon {
+      border-color: var(--ultramarine-dark-color);
+    }
+    &--large &__icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
 
+  // Адаптив
   @include mobile {
     &--large {
-      font-size: 1.4rem;
-      line-height: 2rem;
+      @include text-body-small;
+      gap: 1rem;
+
+      .link__icon {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
     }
   }
 }

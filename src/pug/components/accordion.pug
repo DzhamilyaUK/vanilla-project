@@ -1,0 +1,20 @@
+mixin accordion(data)
+  .accordion
+    each item, index in data
+      .accordion__item
+        input.accordion__trigger(
+          type="checkbox" 
+          id=`accordion-${index}`
+          checked=item.open
+        )
+        label.accordion__header(for=`accordion-${index}`)
+          span.accordion__title= item.title
+          span.accordion__icon
+            svg.icon-plus(width="48" height="48" viewBox="0 0 48 48" fill="none")
+              rect(width="48" height="48" rx="16" fill="#F0F2F8")           
+              path(d="M24.0001 14.6666V33.3333M14.6667 24H33.3334" stroke="#5747FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+            svg.icon-minus(width="48" height="48" viewBox="0 0 48 48" fill="none")
+              rect(width="48" height="48" rx="16" fill="white" fill-opacity="0.3")
+              path(d="M14.6665 24H33.3332" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+        .accordion__content
+          .accordion__body= item.body

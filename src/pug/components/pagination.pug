@@ -4,74 +4,43 @@ mixin pagination(props={})
       tag = 'nav',
       currentPage = 1,
       totalPages = 5,
-      large = false, // TODO Убрать
-      showArrows = true, // TODO Убрать
       disabled = false,
       baseUrl = '/page/'
     } = props;
 
-    // TODO Убрать
-    let visiblePages = [];
-    const maxVisible = 5;
-    if (totalPages <= maxVisible) {
-      visiblePages = Array.from({ length: totalPages }, (_, i) => i + 1);
-    } else {
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-      visiblePages = [
-        1,
-        ...(start > 2 ? ['...'] : []),
-        ...Array.from({ length: end - start + 1 }, (_, i) => start + i),
-        ...(end < totalPages - 1 ? ['...'] : []),
-        totalPages,
-      ];
-    }
+    // Генерируем полный список страниц
+    const visiblePages = Array.from({length: totalPages}, (_, i) => i + 1);
 
-    // TODO Переделать запись класса
   #{tag}.pagination(
-    class=[
-      {'pagination--large': large},
-      {'pagination--disabled': disabled}
-    ]
+    class=[{'pagination--disabled': disabled}]
     aria-label="Навигация по страницам"
   )&attributes(attributes)
-    if showArrows
-      // TODO Сделать ссылкой
-      button.pagination__arrow.pagination__prev(
-        type="button"
-        class={'--disabled': currentPage === 1 || disabled}
-        disabled=disabled || currentPage === 1
-        aria-label="Предыдущая страница"
-        data-page=currentPage - 1
-      )
-          include ../../assets/icons/chevron-left.svg
+    a.pagination__arrow.pagination__prev(
+      href=!disabled && currentPage > 1 ? `${baseUrl}${currentPage - 1}` : null
+      class={'--disabled': currentPage === 1 || disabled}
+      aria-label="Предыдущая страница"
+    )
+      include ../../assets/icons/chevron-left.svg
 
     .pagination__pages
       each page in visiblePages
-        if page === '...'
-          span.pagination__dots ...
+        - const isActive = page === currentPage;
+        if isActive
+          span.pagination__item.pagination__item--active(
+            aria-current="page"
+            aria-label=`Страница ${page}`
+          )= page
         else
-          - const isActive = page === currentPage;
-          if isActive
-            span.pagination__item.pagination__item--active(
-              aria-current="page"
-              aria-label=`Страница ${page}`
-            )= page
-          else
-            a.pagination__item(
-              href=`${baseUrl}${page}`
-              aria-label=`Перейти к странице ${page}`
-              class={'--disabled': disabled}
-            )= page
+          a.pagination__item(
+            href=!disabled ? `${baseUrl}${page}` : null
+            aria-label=`Перейти к странице ${page}`
+            class={'--disabled': disabled}
+          )= page
 
-    if showArrows
-      // TODO Сделать ссылкой
-      button.pagination__arrow.pagination__next(
-        type="button"
-        class={'--disabled': currentPage === totalPages || disabled}
-        disabled=disabled || currentPage === totalPages
-        aria-label="Следующая страница"
-        data-page=currentPage + 1
-      )
-        span.pagination__icon
-          include ../../assets/icons/chevron-right.svg
+    a.pagination__arrow.pagination__next(
+      href=!disabled && currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : null
+      class={'--disabled': currentPage === totalPages || disabled}
+      aria-label="Следующая страница"
+    )
+      span.pagination__icon
+        include ../../assets/icons/chevron-right.svg

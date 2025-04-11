@@ -1,0 +1,158 @@
+.accordion-container {
+  position: relative;
+  max-width: 3140px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+}
+
+.accordion {
+  position: relative;
+  width: 90rem;
+  padding: 4rem 0;
+  background-color: var(--app-bg);
+
+  &__item {
+    position: relative;
+    border-radius: 3.2rem;
+    background: var(--card-color);
+    margin-bottom: 1.6rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  &__trigger {
+    display: none;
+
+    &:checked {
+      ~ .accordion__header {
+        .accordion__icon {
+          .icon-plus {
+            opacity: 0;
+          }
+          .icon-minus {
+            opacity: 1;
+          }
+        }
+        background: var(--ultramarine-default-color);
+        color: var(--text-contrast-filled-color);
+      }
+
+      ~ .accordion__content {
+        background-color: var(--ultramarine-default-color);
+        max-height: 100rem;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    cursor: pointer;
+    background: var(--card-color);
+    transition: all 0.3s ease;
+
+    &:hover {
+      .accordion__title {
+        color: var(--ultramarine-default-color);
+      }
+      .accordion__trigger:checked ~ & {
+        &:hover {
+          background: var(--ultramarine-default-color);
+          cursor: default;
+
+          .accordion__title {
+            color: var(--text-contrast-filled-color);
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 30px;
+    flex-grow: 1;
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+  
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  
+    .icon-minus {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+  
+    .accordion__trigger:checked + .accordion__header & {
+      .icon-plus {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      .icon-minus {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  
+    .accordion__trigger:active + .accordion__header & svg {
+      transform: scale(0.92);
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__body {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 32px 20px;
+  }
+}
+
+// Адаптив для мобильных
+@media (max-width: 768px) {
+  .accordion {
+    padding: 20px;
+
+    &__header {
+      padding: 16px 24px;
+    }
+
+    &__title {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    &__icon {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    &__body {
+      font-size: 14px;
+      line-height: 22px;
+      padding: 0 24px 16px;
+    }
+  }
+}

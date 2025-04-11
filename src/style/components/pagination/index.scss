@@ -18,17 +18,13 @@
   }
   &__item {
     @include text-body-small-bold;
-    > * {
-      position: relative;
-      z-index: 5;
-    }
     color: var(--text-color);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4rem;
-    height: 4rem;
+    width: 4.8rem;
+    height: 4.8rem;
     border-radius: 1.6rem;
     transition: all 0.35s ease;
     outline: none;
@@ -41,20 +37,27 @@
       border: 1px solid transparent;
       background-color: transparent;
       transition: inherit;
-            
+           
     }
     &:hover:not(.--disabled) {
       color: var(--text-color);
       background-color: var(--gray-color-4);
       border-color: transparent;
     }
+
     &:active:not(.--disabled) {
-      transform: scale(0.95);
-      &::before {
-        background-color: var(--gray-color-5);
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+      background-color: var(--gray-color-5);
+      border-color: var(--gray-color-5);
     }
+
+    &--active:not(.--disabled) {
+      background-color: var(--gray-color-5);
+      border-color: var(--gray-color-5);
+    }
+
+
+
+
     &--disabled {
       color: var(--text-secondary-color);
       cursor: not-allowed;
@@ -64,31 +67,18 @@
         opacity: 0.6;
       }
     }
+
     @include mobile {
-      width: 3.6rem;
-      height: 3.6rem;
+      width: 4.4rem;
+      height: 4.4rem;
       border-radius: 1.2rem;
       &:active:not(.--disabled) {
         transform: scale(0.9);
       }
     }
 
-    &--active {
-      color: var(--text-color);
-      &::before {
-        opacity: 0.5;
-        background-color: var(--gray-color-5);
-        border-color: var(--gray-color-5);
-      }
-      
-      @include mobile {
-        width: 4.4rem;
-        height: 4.4rem;
-        border-radius: 1.2rem;
-      }
-    }
-
   }
+
   &__icon {
     width: 2.4rem;
     height: 2.4rem;
@@ -114,7 +104,7 @@
     border-radius: 1.6rem;
     cursor: pointer;
     transition: all 0.35s ease;
-    @media (min-width: 1200px) {
+    @media (min-width: 1024px) {
       &:hover:not(.--disabled) {
         background: var(--gray-color-4);
         .pagination__icon {
@@ -141,6 +131,8 @@
       }
     }
   }
+
+
   &__dots {
     pointer-events: none;
     user-select: none;
