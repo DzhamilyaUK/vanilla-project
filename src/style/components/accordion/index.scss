@@ -1,21 +1,22 @@
 .accordion-container {
   position: relative;
   max-width: 3140px;
-  margin: 0 auto;
-  padding: 6rem 3rem;
+  margin: 6rem 3rem;
+  background-color: var(--app-bg);
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 .accordion {
   position: relative;
-  width: 90rem;
-  padding: 4rem 0;
-  background-color: var(--app-bg);
+
 
   &__item {
     position: relative;
     border-radius: 3.2rem;
     background: var(--card-color);
-    margin-bottom: 1.6rem;
     overflow: hidden;
     transition: all 0.3s ease;
   }
@@ -131,9 +132,9 @@
 }
 
 // Адаптив для мобильных
+// TODO Использовать миксины
 @media (max-width: 768px) {
   .accordion {
-    padding: 20px;
 
     &__header {
       padding: 16px 24px;
@@ -149,6 +150,7 @@
       height: 3.2rem;
     }
 
+    // TODO Использовать миксины
     &__body {
       font-size: 14px;
       line-height: 22px;

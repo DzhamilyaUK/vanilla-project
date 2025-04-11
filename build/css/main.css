@@ -1177,21 +1177,21 @@ button.tag._dense:hover::before {
 .accordion-container {
   position: relative;
   max-width: 3140px;
-  margin: 0 auto;
-  padding: 6rem 3rem;
+  margin: 6rem 3rem;
+  background-color: var(--app-bg);
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 .accordion {
   position: relative;
-  width: 90rem;
-  padding: 4rem 0;
-  background-color: var(--app-bg);
 }
 .accordion__item {
   position: relative;
   border-radius: 3.2rem;
   background: var(--card-color);
-  margin-bottom: 1.6rem;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -1280,9 +1280,6 @@ button.tag._dense:hover::before {
 }
 
 @media (max-width: 768px) {
-  .accordion {
-    padding: 20px;
-  }
   .accordion__header {
     padding: 16px 24px;
   }
@@ -1558,4 +1555,10 @@ button.tag._dense:hover::before {
     border-radius: 1rem;
     margin: 1.5rem 0;
   }
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
