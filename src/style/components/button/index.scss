@@ -2,15 +2,17 @@
   @include text-button;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 1.2rem;
   border-radius: 1.6rem;
   transition: all 0.3s ease;
 
   &--type-main {
+    border: 1px solid var(--ultramarine-default-color);
     background: var(--ultramarine-default-color);
     color: var(--text-contrast-filled-color);
 
-    &:hover {
+    &:hover:not(:disabled) {
       border-radius: 3.2rem;
       background: var(--ultramarine-dark-color);
     }
@@ -25,9 +27,14 @@
     border: 1px solid var(--ultramarine-default-color);
     color: var(--ultramarine-default-color);
 
-    &:hover {
+    &:hover:not(:disabled) {
       border-radius: 3.2rem;
       background: var(--gray-color-2);
+    };
+
+    &:active {
+      border-radius: 3.2rem;
+      background: var(--gray-color-3);
     }
   }
 
@@ -41,10 +48,10 @@
     }
   }
 
-  &--state-disabled {
+  &:disabled {
     background: var(--gray-color-3);
-    border-color: var(--border-color);
-    color: var(--text-blind);
+    border: 1px solid #d3d6e0;
+    color: var(--text-blind-color);
     cursor: not-allowed;
   }
 

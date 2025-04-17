@@ -1,28 +1,4 @@
 // Миксины
-.text-h1 {
-  @include text-h1;
-}
-
-.text-h2 {
-  @include text-h2;
-  padding: 5.6rem 0rem 4rem 0rem;
-}
-
-.text-h3 {
-  @include text-h3;
-  padding: 5.6rem 0rem 4rem 0rem;
-}
-
-.text-body {
-  @include text-body;
-  margin: 2.4rem 0rem;
-}
-
-.text-caption {
-  @include text-caption;
-}
-
-
 .text-content {
   background: var(--app-bg);
   padding: 4rem;
@@ -33,89 +9,111 @@
     padding: 2rem;
   }
 
-  &__header {
+  // Header section
+  > header {
     background: var(--ultramarine-default-color);
     padding: 3.2rem;
     margin-bottom: 4rem;
     border-radius: 1.6rem;
-  }
-
-  &__title {
-    color: var(--text-carousel-color);
-    margin: 0;
-  }
-
-  &__section {
-    margin: 3.2rem 0;
-
-    @include mobile {
-      margin: 2.4rem 0;
+    
+    h1, h2, h3 {
+      color: var(--text-carousel-color);
+      margin: 0;
     }
   }
 
-  &__list {
-    padding-left: 3.2rem;
+  // Headings
+  h1 { @include text-h1; }
+  
+  h2 {
+    @include text-h2;
+    padding: 5.6rem 0 4rem 0;
+  }
+
+  h3 {
+    @include text-h3;
+    padding: 5.6rem 0 4rem 0;
+  }
+
+  // Body text
+  p {
+    @include text-body;
     margin: 2.4rem 0;
 
-    &-item {
-      @include text-body;
-      position: relative;
-      padding-left: 2.4rem;
-      margin: 1.2rem 0;
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0.7em;
-        width: 0.8rem;
-        height: 0.8rem;
-        background: var(--ultramarine-default-color);
-        border-radius: 50%;
-      }
+    &:first-child {
+      margin-top: 0;
     }
 
-    &--level-2 {
-      padding-left: 2rem;
-      margin: 0.5rem 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
-      .text-content__list-item::before {
+  // Lists
+  ul, ol {
+    margin: 2.4rem 0;
+
+    // Nested lists
+    ul {
+      padding-left: 0rem;
+      margin: 0.5rem 0;
+      
+      li::before {
         background-image: url("data:image/svg+xml,%3Csvg width='16' height='2' viewBox='0 0 16 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1H15' stroke='%235747FF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
         background-size: contain;
-        width: 16px;
+        width: 1.6rem;
         height: 2px;
         top: 50%;
         transform: translateY(-50%);
-      }
-    }
-
-    &--ordered {
-      list-style: none;
-      padding: 2.4rem 0rem 2.4rem 2.5rem;
-      counter-reset: ordered-list;
-
-      &-item {
-        position: relative;
-        margin: 1rem 0;
-        padding-left: 1.5rem;
-        counter-increment: ordered-list;
-
-        &::before {
-          content: counter(ordered-list) ".";
-          position: absolute;
-          left: -2.5rem;
-          top: 0.1em;
-          width: 2rem;
-          text-align: right;
-          font-weight: 600;
-          font-family: Inter;
-          font-size: 0.9em;
-        }
+        background-color: transparent;
       }
     }
   }
 
-  &__link {
+  li {
+    @include text-body;
+    position: relative;
+    padding-left: 2.4rem;
+    margin: 1.2rem 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      background: var(--ultramarine-default-color);
+      border-radius: 50%;
+    }
+  }
+
+  // Ordered lists
+  ol {
+    list-style: none;
+    counter-reset: ordered-list;
+
+    li {
+      position: relative;
+      margin: 1rem 0;
+      counter-increment: ordered-list;
+
+      &::before {
+        content: counter(ordered-list) ".";
+        left: -1rem;
+        top: 0.2rem;
+        width: 2rem;
+        text-align: right;
+        font-weight: 600;
+        font-family: Inter;
+        font-size: 0.9em;
+        background: none;
+      }
+    }
+  }
+
+  // Links
+  a {
     color: var(--ultramarine-dark-color);
 
     &:hover {
@@ -124,99 +122,85 @@
     }
   }
 
-  &__table {
-    width: 100%;
-    border-collapse: separate;
-    border-radius: 1.6rem;
-    overflow: hidden;
-    border-spacing: 0;
-    background: var(--card-color);
+  // Tables
+  figure.table {
     margin: 2.4rem 0;
+    padding: 5.6rem 0;
+    width: 100%;
 
-    &-wrap {
-      padding: 5.6rem 0rem;
-    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--card-color);
+      border-radius: 1.6rem;
+      overflow: hidden;
 
-    th,
-    td {
-      @include text-body-small;
-      width: 25%;
-      padding: 1.6rem;
-      border: 1px solid var(--border-color);
-      text-align: left;
-    }
+      th, td {
+        @include text-body-small;
+        width: 25%;
+        padding: 1.6rem;
+        border: 1px solid var(--border-color);
+        text-align: left;
+      }
 
-    th {
-      background: var(--ultramarine-default-color);
-      color: var(--text-carousel-color);
-      font-weight: 600;
-      border-color: var(--ultramarine-dark-color);
-    }
-    // Стили для первых/последних ячеек
-    thead tr:first-child th {
-      &:first-child {
-        border-top-left-radius: 1.6rem;
+      th {
+        background: var(--ultramarine-default-color);
+        color: var(--text-carousel-color);
+        font-weight: 600;
+        border-color: var(--ultramarine-dark-color);
       }
-      &:last-child {
-        border-top-right-radius: 1.6rem;
-      }
-    }
 
-    tbody tr:last-child td {
-      &:first-child {
-        border-bottom-left-radius: 1.6rem;
+      // Скругления углов
+      thead tr:first-child th {
+        &:first-child { border-top-left-radius: 1.6rem; }
+        &:last-child { border-top-right-radius: 1.6rem; }
       }
-      &:last-child {
-        border-bottom-right-radius: 1.6rem;
-      }
-    }
 
-    th,
-    td {
-      &:first-child {
-        border-left: 1px solid var(--border-color);
-      }
-      &:last-child {
-        border-right: 1px solid var(--border-color);
+      tbody tr:last-child td {
+        &:first-child { border-bottom-left-radius: 1.6rem; }
+        &:last-child { border-bottom-right-radius: 1.6rem; }
       }
     }
   }
 
-  &__image {
+  // Стили для изображений
+  figure.image {
     margin: 4rem 0;
     position: relative;
-    overflow: hidden; // Обрезает выходящие за границы части
-    max-width: 100%; // Ограничение максимальной ширины
+    overflow: hidden;
+    max-width: 100%;
 
-    &-container {
-      position: relative;
-
-      img {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 1.6rem;
-      }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 1.6rem;
     }
 
-    // Стили для подписи
     figcaption {
       @include text-caption;
       color: var(--text-content-secondary-color);
       padding: 1.2rem 2rem;
       background: var(--gray-color-2);
-      margin-top: 0.4rem; // Компенсация зазора
+      margin-top: 0.4rem;
 
-      &:empty {
-        display: none; // Скрываем пустые подписи
-      }
+      &:empty { display: none; }
     }
 
     @include mobile {
       border-radius: 1rem;
       margin: 1.5rem 0;
+    }
+  }
+
+  // Sections
+  > section {
+    margin: 3.2rem 0;
+
+    @include mobile {
+      margin: 2.4rem 0;
     }
   }
 }

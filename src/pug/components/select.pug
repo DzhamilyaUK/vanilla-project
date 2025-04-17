@@ -1,0 +1,105 @@
+mixin custom-select(options, name, multiple, placeholder, caption, disabled)
+  .custom-select(
+    class=multiple ? 'is-multiple' : '',
+    class=disabled ? 'is-disabled' : '',
+    data-multiple=multiple,
+    data-disabled=disabled,
+    data-initialized="false"
+  )
+    .select-header(
+      tabindex=disabled ? '-1' : '0',
+      aria-disabled=disabled ? 'true' : 'false'
+    )
+      span.select-current= placeholder || 'Выберите вариант'
+      span.select-count
+      span.select-arrow
+        svg(width="20" height="20" viewBox="0 0 20 20" fill="none")
+          path(
+            d="M5 7.5L10 12.5L15 7.5",
+            stroke="#7A818D",
+            stroke-width="1.5",
+            stroke-linecap="round",
+            stroke-linejoin="round"
+          )
+    
+    .select-options
+      each option, index in options
+        .select-option
+          input.select-input(
+            type=multiple ? 'checkbox' : 'radio',
+            id=`${name}-${option.value}`,
+            name=multiple ? `${name}[]` : name,
+            value=option.value,
+            disabled=disabled
+          )
+          label.select-label(for=`${name}-${option.value}`)
+            span.select-checkbox
+              svg.check-icon(width="15" height="10" viewBox="0 0 15 10" fill="none")
+                path(
+                  d="M1.1665 4.99992L5.33317 9.16659L13.6665 0.833252",
+                  stroke="white",
+                  stroke-width="1.5",
+                  stroke-linecap="round",
+                  stroke-linejoin="round"
+                )
+            span.select-text= option.label
+
+    if caption
+      .select-caption= caption
+
+  if !global._customSelectScript
+    - global._customSelectScript = true
+    script.
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.custom-select').forEach(select => {
+          if (select.dataset.initialized === 'true') return;
+          
+          const header = select.querySelector('.select-header');
+          const options = select.querySelector('.select-options');
+          const arrow = select.querySelector('.select-arrow');
+          const inputs = select.querySelectorAll('input');
+          const current = select.querySelector('.select-current');
+          const isMultiple = select.dataset.multiple;
+          const isDisabled = select.dataset.disabled === 'true';
+
+          header.addEventListener('click', (e) => {
+            if (isDisabled) return;
+            e.stopPropagation();
+            const isOpen = options.classList.toggle('is-open');
+            select.classList.toggle('is-open', isOpen);
+            arrow.style.transform = isOpen 
+              ? 'translateY(-50%) rotate(180deg)'
+              : 'translateY(-50%) rotate(0deg)';
+          });
+
+          inputs.forEach(input => {
+            input.addEventListener('change', () => {
+              if (!isMultiple) {
+                select.classList.remove('is-open');
+                options.classList.remove('is-open');
+                arrow.style.transform = 'translateY(-50%) rotate(0deg)';
+                current.textContent = input.nextElementSibling.querySelector('.select-text').textContent;
+              }
+              updateSelectedCount();
+            });
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!select.contains(e.target)) {
+              select.classList.remove('is-open');
+              options.classList.remove('is-open');
+              arrow.style.transform = 'translateY(-50%) rotate(0deg)';
+            }
+          });
+
+          const updateSelectedCount = () => {
+            if (!isMultiple) return;
+            const selected = select.querySelectorAll('input:checked').length;
+            current.textContent = selected 
+              ? `Выбрано ${selected}`
+              : '#{placeholder}' || 'Выберите варианты';
+          };
+
+          select.dataset.initialized = 'true';
+        });
+      });
