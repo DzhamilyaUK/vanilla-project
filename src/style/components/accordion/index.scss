@@ -12,7 +12,6 @@
 .accordion {
   position: relative;
 
-
   &__item {
     position: relative;
     border-radius: 3.2rem;
@@ -50,7 +49,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 32px;
+    padding: 2.4rem 3.2rem;
     cursor: pointer;
     background: var(--card-color);
     transition: all 0.3s ease;
@@ -59,6 +58,7 @@
       .accordion__title {
         color: var(--ultramarine-default-color);
       }
+      
       .accordion__trigger:checked ~ & {
         &:hover {
           background: var(--ultramarine-default-color);
@@ -73,17 +73,15 @@
   }
 
   &__title {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 30px;
+    @include text-h4;
     flex-grow: 1;
   }
 
   &__icon {
     position: relative;
     display: inline-block;
-    width: 48px;
-    height: 48px;
+    width: 4.8rem;
+    height: 4.8rem;
   
     svg {
       position: absolute;
@@ -124,25 +122,16 @@
   }
 
   &__body {
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    padding: 0 32px 20px;
+    @include text-body;
+    padding: 0 3.2rem 2rem;
   }
 }
 
 // Адаптив для мобильных
-// TODO Использовать миксины
-@media (max-width: 768px) {
+@include mobile {
   .accordion {
-
     &__header {
-      padding: 16px 24px;
-    }
-
-    &__title {
-      font-size: 18px;
-      line-height: 26px;
+      padding: 1.6rem 2.4rem;
     }
 
     &__icon {
@@ -150,11 +139,8 @@
       height: 3.2rem;
     }
 
-    // TODO Использовать миксины
     &__body {
-      font-size: 14px;
-      line-height: 22px;
-      padding: 0 24px 16px;
+      padding: 0 1.6rem 2.4rem;
     }
   }
 }

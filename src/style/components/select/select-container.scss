@@ -1,0 +1,15 @@
+.select-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--app-bg);
+    max-width: 3140px;
+    height: 30rem;
+    margin: 3rem 3rem;
+
+    @include mobile {
+      padding: 1rem;
+      gap: 1rem;
+    }
+  }
