@@ -1,180 +1,203 @@
 .custom-select {
-    position: relative;
-    width: 100%;
-    max-width: 36rem;
-    margin-bottom: 8px;
-    @include text-body;
-    color: var(--text-color);
-  
-    .select-caption {
-      margin-top: 8px;
-      @include text-caption;
-      color: var(--text-secondary-color);
-      padding: 0 4px;
-    }
-  
-    &.is-open {
-      .select-header .select-current {
-        color: var(--text-color);
-      }
-    }
-    
+  position: relative;
+  width: 100%;
+  max-width: 36rem;
+  margin-bottom: 0.8rem;
+  @include text-body;
+  color: var(--text-color);
+
+  .select-caption {
+    margin-top: 0.8rem;
+    @include text-caption;
+    color: var(--text-secondary-color);
+    padding: 0 0.4rem;
+  }
+
+  &.is-open {
     .select-header .select-current {
-      color: var(--text-secondary-color);
-      transition: color 0.2s;
+      color: var(--text-color);
     }
+  }
   
-    .select-header {
-      border-radius: 1.2rem;
-      padding: 1.8rem 1.6rem; 
-      border: 0.1rem solid var(--border-color);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 1.6rem;
-      background: var(--gray-color-4);
-      transition: border-color 0.2s;
-      position: relative;
-      padding-right: 4rem;
-      
-      &:hover {
-        border-color: var(--ultramarine-default-color);
-      }
-  
-      .select-arrow {
-        position: absolute;
-        right: 1.6rem;
-        top: 50%;
-        transform: translateY(-50%) rotate(0deg);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
-        svg {
-          display: block;
-        }
-      }
+  .select-header .select-current {
+    color: var(--text-secondary-color);
+    transition: color 0.2s;
+  }
+
+  .select-header {
+    border-radius: 1.2rem;
+    padding: 1.8rem 1.6rem;
+    border: 0.1rem solid var(--border-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.6rem;
+    background: var(--gray-color-4);
+    transition: border-color 0.2s;
+    position: relative;
+    padding-right: 4rem;
+    
+    &:hover {
+      border-color: var(--ultramarine-default-color);
     }
-  
-    .select-options {
-      display: none;
+
+    .select-arrow {
       position: absolute;
-      width: 100%;
-      z-index: 100;
-      flex-direction: column;
-      gap: 4px;
-      border-radius: 1.2rem;
-      margin-top: 8px;
-      padding: 8px;
-      background: var(--card-color);
-  
-      &.is-open {
-        display: flex;
-  
-        ~ .select-header .select-arrow {
-          transform: translateY(-50%) rotate(180deg);
-        }
-      }
-    }
-  
-    .select-option {
-      padding: 0.8rem 1.2rem; 
-      display: flex;
-      align-items: center;
-      gap: 1.2rem; 
-      border-radius: 8px;
-      width: 34.4rem;
-      height: 4rem;
-      transition: background-color 0.2s;
-  
-      &:hover {
-        background: var(--gray-color-1);
-      }
-    }
-  
-    .select-input {
-      display: none;
-  
-      &:checked + .select-label {
-        .select-checkbox {
-          background: var(--ultramarine-default-color);
-          border-color: var(--ultramarine-default-color);
-  
-          .check-icon {
-            opacity: 1;
-            visibility: visible;
-          }
-        }
-      }
-    }
-  
-    .select-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      width: 100%;
-    }
-  
-    .select-checkbox {
-      position: relative;
-      width: 1.8rem;
-      height: 1.8rem;
-      border: 0.1rem solid var(--gray-color-5);
-      border-radius: 3px;
-      transition: all 0.2s;
-  
-      .check-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.2s;
-      }
-    }
-  
-    &.is-disabled {
-      pointer-events: none;
-      opacity: 0.7;
-  
-      .select-header {
-        background: var(--gray-color-2);
-        border-color: var(--gray-color-3);
-        cursor: not-allowed;
-  
-        .select-current {
-          color: var(--text-blind-color);
-        }
-  
-        .select-arrow svg {
-          stroke: var(--text-blind-color);
-        }
-      }
-  
-      .select-checkbox {
-        border-color: var(--gray-color-3);
-        background: var(--gray-color-2);
-      }
-    }
-  
-    // Медиа-запросы
-    @include mobile {
-      max-width: 100%;
-  
-      .select-header {
-        padding: 1.4rem 1.2rem;
-      }
-  
-      .select-option {
-        width: 100%;
-        height: 3.6rem;
-      }
-    }
-  
-    @include tablet {
-      .select-header {
-        padding: 1.6rem;
+      right: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      svg {
+        display: block;
       }
     }
   }
+
+  .select-options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-radius: 1.2rem;
+    margin-top: 0.8rem;
+    padding: 0.8rem;
+    box-shadow: 0 0 5rem 0 rgba(31, 39, 51, 0.08);
+    background: var(--card-color);
+
+    &.is-open {
+      display: flex;
+
+      ~ .select-header .select-arrow {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  .select-option {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border-radius: 0.8rem;
+    width: 34.4rem;
+    height: 4rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: var(--gray-color-1);
+    }
+  }
+
+  .select-input {
+    display: none;
+
+    &:checked + .select-label {
+      .select-checkbox {
+        background: var(--ultramarine-default-color);
+        border-color: var(--ultramarine-default-color);
+
+        .check-icon {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  .select-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .select-checkbox {
+    position: relative;
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 0.1rem solid var(--gray-color-5);
+    border-radius: 0.3rem;
+    transition: all 0.2s;
+
+    .check-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.7;
+
+    .select-header {
+      background: var(--gray-color-2);
+      border-color: var(--gray-color-3);
+      cursor: not-allowed;
+
+      .select-current {
+        color: var(--text-blind-color);
+      }
+
+      .select-arrow svg {
+        stroke: var(--text-blind-color);
+      }
+    }
+
+    .select-checkbox {
+      border-color: var(--gray-color-3);
+      background: var(--gray-color-2);
+    }
+  }
+
+  // Стили только для одиночного выбора
+  &:not(.is-multiple) {
+    .select-checkbox {
+      display: none;
+    }
+    
+    .select-label {
+      gap: 0;
+    }
+    
+    .select-option {
+      padding-left: 1.2rem;
+    }
+    
+    .select-input:checked + .select-label {
+      .select-text {
+        color: var(--ultramarine-default-color);
+        font-weight: 500;
+      }
+    }
+  }
+
+  // Медиа-запросы
+  @include mobile {
+    max-width: 100%;
+
+    .select-header {
+      padding: 1.4rem 1.2rem;
+    }
+
+    .select-option {
+      width: 100%;
+      height: 3.6rem;
+    }
+  }
+
+  @include tablet {
+    .select-header {
+      padding: 1.6rem;
+    }
+  }
+}
