@@ -1,4 +1,8 @@
+import { selectComponent } from './components/select.js'
 
-
-console.log("Скрипт main.js подключен!");
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.custom-select').forEach(select => {
+    selectComponent(select)
+  })
+})
 

@@ -5,21 +5,18 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  @include mobile {
-    padding: 2rem;
+  > * {
+    &:first-child {
+      margin-top: 0 !important;
+    }
+
+    &:last-child {
+      margin-bottom: 0!important;
+    }
   }
 
-  // Header section
-  > header {
-    background: var(--ultramarine-default-color);
-    padding: 3.2rem;
-    margin-bottom: 4rem;
-    border-radius: 1.6rem;
-    
-    h1, h2, h3 {
-      color: var(--text-carousel-color);
-      margin: 0;
-    }
+  @include mobile {
+    padding: 2rem;
   }
 
   // Headings
@@ -27,26 +24,18 @@
   
   h2 {
     @include text-h2;
-    padding: 5.6rem 0 4rem 0;
+    margin: 5.6rem 0 4rem 0;
   }
 
   h3 {
     @include text-h3;
-    padding: 5.6rem 0 4rem 0;
+    margin: 5.6rem 0 4rem 0;
   }
 
   // Body text
   p {
     @include text-body;
     margin: 2.4rem 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   // Lists
@@ -192,15 +181,6 @@
     @include mobile {
       border-radius: 1rem;
       margin: 1.5rem 0;
-    }
-  }
-
-  // Sections
-  > section {
-    margin: 3.2rem 0;
-
-    @include mobile {
-      margin: 2.4rem 0;
     }
   }
 }

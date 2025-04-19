@@ -20,7 +20,7 @@ task("clean", () => {
 
 //Задача copy
 task("copy", () => {
-  return src(["./src/public/**/*", "./src/assets/**/*"])
+  return src(["./src/public/**/*", "./src/assets/**/*"], { encoding: false })
     .pipe(dest("./build")) // Простое копирование без сохранения структуры public
     .pipe(browserSync.stream());
 });
@@ -31,6 +31,7 @@ task("scss", () => {
     .pipe(
       sass({
         outputStyle: "expanded",
+        silenceDeprecations: ['import', 'mixed-decls']
       }).on("error", sass.logError)
     )
     .pipe(dest("./build/css"))
