@@ -1,0 +1,143 @@
+.event-card {
+  font-family: var(--main-font);
+  border-radius: 4rem;
+  position: relative;
+  padding: 1.6rem;
+  margin: 3rem;
+  overflow: hidden;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  
+  min-height: 56.4rem;
+  width: 44rem;
+  background: var(--card-color);
+
+  @include mobile {
+    width: 100%;
+    margin: 2rem 0;
+    border-radius: 2.8rem;
+  }
+
+  &__image {
+    height: 25.2rem;
+    border-radius: 2.8rem;
+    width: 40.8rem;
+    background: url("path_to_image");
+
+    @include mobile {
+      width: 100%;
+      height: 20rem;
+    }
+  }
+
+  &__bookmark {
+    position: absolute;
+    top: 3.2rem;
+    right: 3.2rem;
+  }
+
+  &__date {
+    position: absolute;
+    top: 3.2rem;
+    left: 3.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+
+    border-radius: 1.6rem;
+    padding: 0.8rem;
+    width: 6.6rem;
+    height: 8.4rem;
+
+    background: var(--card-color);
+
+    &__day {
+      font: 700 40px / 1.2 "Onest", sans-serif;
+      color: var(--ultramarine-default-color);
+      text-align: center;
+    }
+
+    &__month {
+      font: 400 14px / 1.42857 "Inter", sans-serif;
+      color: var(--text-secondary-color);
+    }
+
+  }
+
+  &__tag_and_timer_cont {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 2.4rem 1.6rem;
+    width: 37.6rem;
+    
+    @include mobile {
+      width: 100%;
+      margin: 2rem 0;
+    }
+  }
+
+  &__timer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    @include text-body-small-bold;
+    color: var(--text-secondary-color);
+  }
+
+  &__headline {
+    @include text-h4;
+    color: var(--text-color);
+    margin-left: 1.6rem;
+    padding-bottom: 2rem;
+
+    &:hover {
+      color: var(--ultramarine-default-color);
+    }
+
+    @include mobile {
+      @include text-h3;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 37.6rem;
+    height: 13rem;
+    border-top: 1px solid var(--divider-color);
+    padding: 2rem 0 0 0;
+    margin: 0 1.6rem;
+    gap: 1.6rem;
+    @include text-body;
+
+    @include mobile {
+      width: 100%;
+      height: auto;
+    }
+
+    &__time,
+    &__place,
+    &__participants {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .icon {
+      flex-shrink: 0;
+      fill: currentColor;
+      opacity: 0.8;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+

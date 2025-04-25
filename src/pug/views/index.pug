@@ -1,6 +1,7 @@
 extends ../layouts/base.pug
 
 include ../components/tag.pug
+include ../components/bookmark.pug
 include ../components/link.pug
 include ../components/pagination.pug
 include ../components/accordion.pug
@@ -11,15 +12,43 @@ block content
   h1.text-h1 Тест шрифта
   p.text-body Проверка подключения
 
-  //- Новая кнопка
-  button.button.button--type-main.button--adaptive-mobile
-    | Button
 
-  button.button.button--type-secondary.button--adaptive-mobile
-    | Button
+  .event-card
+    +bookmark().event-card__bookmark
+    .event-card__date
+      .event-card__date__day 30
+      .event-card__date__month сен
+    img.event-card__image(
+      src="https://images.unsplash.com/photo-1741851374430-d242e0dcd70c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt="Описание изображения"
+    )
+    .event-card__tag_and_timer_cont
+      +tag({dense: true, color: '#6da800'}) Наука
+      .event-card__timer Через 12 дней
+    .event-card__headline Название мероприятия
+    .event-card__info 
+      .event-card__info__time
+        include ../../assets/icons/clock.svg
+        | 12:00 - 17:00
+      .event-card__info__place
+        include ../../assets/icons/map-pin.svg
+        | ГУАП, Ленсовета 14, актовый зал
+      .event-card__info__participants
+        include ../../assets/icons/users-group.svg
+        | 500 человек
 
-  button.button.button--type-secondary.button--adaptive-mobile(disabled)
-    | Button  
+
+
+
+  .button-container
+    button.button.button--type-main.button--adaptive-mobile
+      | Button
+
+    button.button.button--type-secondary.button--adaptive-mobile
+      | Button
+
+    button.button.button--type-secondary.button--adaptive-mobile(disabled)
+      | Button  
 
 
 
