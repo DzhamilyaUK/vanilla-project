@@ -29,6 +29,10 @@
         
     // Стили для пользовательской иконки
     &__user-btn {
+      @include tablet {
+        display: none;
+      }
+
         background-color: transparent;
         border: none;
 
@@ -40,6 +44,14 @@
         svg {
           border: 1.5px solid white;
         }
+      }
+    }
+
+    &__menu-btn {
+      display: none;
+
+      @include tablet {
+        display: block;
       }
     }
   

@@ -16,4 +16,5 @@ mixin graduate-card(props={})
             )
         .graduate-card__info
             a.graduate-card__headline(href=href)!= graduateName
-            .graduate-card__bio!= graduateBio
+            .graduate-card__bio
+                p!= graduateBio

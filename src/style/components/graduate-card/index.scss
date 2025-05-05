@@ -2,29 +2,32 @@
   font-family: var(--main-font);
   border-radius: 4rem;
   position: relative;
+  min-height: 61.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.6rem;
 
   overflow: hidden;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
 
   height: 100%;
   width: 100%;
   background: var(--card-color);
 
+  &:hover {
+    .graduate-card__bio {
+      max-height: 160px;
+    }
+  }
+
   &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    position: relative;
-    padding-top: 71.2%; // 16:10
-    border-radius: 2.8rem;
-    overflow: hidden;
+    height: 100%;
 
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -33,18 +36,12 @@
   }
 
   &__info {
-    position: absolute;
-    bottom: 1.6rem;
-    left: 1.6rem;
-    right: 1.6rem;
     background: #fff;
     border-radius: 2.4rem;
-    padding: 1.6rem;
+    padding: 2rem;
     text-align: center;
-    font: 700 22px / 1.36364 "Onest", sans-serif;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font: 700 2.2rem / 1.36364 "Onest", sans-serif;
     overflow: hidden;
-    max-height: 100px; // Высота только для имени
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -61,31 +58,22 @@
     font: 700 22px / 1.36364 "Onest", sans-serif;
     color: #1f2733;
     margin: 0;
-    transition: inherit;
-    position: relative;
-    z-index: 2;
-    text-decoration: none;
   }
 
   &__bio {
-    opacity: 0;
     color: #636e72;
     line-height: 1.5;
     font-size: 14px;
-    transform: translateY(20px);
-    transition: inherit;
     margin: 0;
-  }
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    max-height: 0;
+    will-change: max-height;
 
-  // Анимации при наведении
-  &:hover &__info {
-    max-height: 300px; // Максимальная высота контейнера
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  &:hover &__bio {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.1s;
+    > * {
+      &:first-child {
+        padding-top: 2rem;
+      }
+    }
   }
 }
