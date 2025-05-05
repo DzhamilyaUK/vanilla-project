@@ -2,7 +2,7 @@ mixin event-card(props={})
     -
         var {
                 day = '30',
-                month = 'Сентябрь',
+                month = 'cен',
                 pictureUrl,
                 tagText = 'Наука',
                 tagColor = '#6DA800',
@@ -12,7 +12,15 @@ mixin event-card(props={})
                     {
                         icon: 'clock',
                         text: '12:00 - 17:00'
-                    }
+                    },
+                    {
+                        icon: 'map-pin',
+                        text: 'ГУАП, Ленсовета 14, актовый зал'
+                    },
+                    {
+                        icon: 'users-group',
+                        text: '500 человек'
+                    }                  
                 ],
                 tag = 'article',
                 countDownText = 'Через 12 дней',
@@ -24,16 +32,20 @@ mixin event-card(props={})
         .event-card__date
             .event-card__date__day!= day
             .event-card__date__month!= month
-        img.event-card__image(
-            src=pictureUrl,
-            alt=title
-        )
+        .event-card__cover
+            img(
+                src=pictureUrl,
+                alt=title
+            )
         .event-card__tag_and_timer_cont
             +tag({dense: true, color: tagColor})!= tagText
             .event-card__timer(class={ _dangerous: countDownStyle === 'dangerous' })!= countDownText
         a.event-card__headline(href=href)!= title
         .event-card__info
             each item in infoItems
-                .event-card__info__time
-                    include ../../assets/icons/clock.svg
-                    != item.text
+                .event-card__info-item
+                    img.event-card__info-icon(
+                        src=`../../icons/${item.icon}.svg`,
+                        alt=""
+                    )
+                    != item.text                

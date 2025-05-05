@@ -1,0 +1,20 @@
+mixin edu-material-card(props={})
+    -
+        var {
+                type = 'Внеучебные',
+                desc = 'Второй день был визионерским: студенты формировали видение идеального амбассадора и выявляли свои точки роста для приближения к этому образу.',
+                pictureUrl,
+                title = 'Образовательный материал №1',
+                href = '#',
+                tag = 'article',
+        } = props
+
+    #{tag}.edu-material-card
+        .edu-material-card__type!= type
+        .edu-material-card__cover
+            img(
+                src=pictureUrl,
+                alt=title
+            )
+        a.edu-material-card__headline(href=href)!= title
+        .edu-material-card__desc!= desc

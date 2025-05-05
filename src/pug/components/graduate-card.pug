@@ -1,0 +1,19 @@
+mixin graduate-card(props={})
+    -
+        var {
+                pictureUrl,
+                graduateName = 'Константинопольский Константин ',
+                graduateBio = 'Здание находится на набережной реки Мойки напротив Юсуповского дворца, рядом с Центральным военно-морским музеем и Санкт-Петербургским Почтамтом.',
+                href = '#',
+                tag = 'article',
+        } = props
+
+    #{tag}.graduate-card
+        .graduate-card__cover
+            img(
+                src=pictureUrl,
+                alt=graduateName
+            )
+        .graduate-card__info
+            a.graduate-card__headline(href=href)!= graduateName
+            .graduate-card__bio!= graduateBio

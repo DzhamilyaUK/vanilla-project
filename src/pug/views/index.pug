@@ -8,6 +8,10 @@ include ../components/accordion.pug
 include ../components/accordion-list.pug
 include ../components/select.pug
 include ../components/event-card.pug
+include ../components/news-card.pug
+include ../components/edu-material-card.pug
+include ../components/graduate-card.pug
+
 
 block content
   h1.text-h1 Тест шрифта
@@ -16,6 +20,10 @@ block content
 
   .cards-list
     +event-card({ pictureUrl: 'https://images.unsplash.com/photo-1741851374430-d242e0dcd70c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' })
+    +news-card({ pictureUrl: 'https://images.unsplash.com/photo-1741851374430-d242e0dcd70c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' })
+    +edu-material-card({ pictureUrl: 'https://images.unsplash.com/photo-1741851374430-d242e0dcd70c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' })
+    +graduate-card({ pictureUrl: 'https://images.unsplash.com/photo-1741851374430-d242e0dcd70c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' })
+
 
 
 

@@ -1,0 +1,58 @@
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-radius: 3.2rem;
+    padding: 3.2rem;
+    background-color: aliceblue;
+
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 4rem;
+        
+    }
+
+
+    &__contacts {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 2rem;
+
+
+        &-item {
+
+        }
+
+        &-link {
+
+        }
+    }
+
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    &-copyright {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 2.4rem 4rem;
+    }
+
+
+
+
+}

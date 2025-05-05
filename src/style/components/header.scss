@@ -1,0 +1,82 @@
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width:144rem;
+    margin: 0 auto;
+    padding: 3.2rem 4rem;
+          
+    
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 1.6rem;
+        list-style: none;
+       
+      &-item {
+        font: 500 16px / 1.5 "Onest", sans-serif;
+        color: #1f2733;
+      }
+
+      &-link {
+        text-decoration: none;
+      }
+    }
+  
+        
+    // Стили для пользовательской иконки
+    &__user-btn {
+        background-color: transparent;
+        border: none;
+
+      &-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        
+        svg {
+          border: 1.5px solid white;
+        }
+      }
+    }
+  
+    // Мобильная версия
+    @media (max-width: 768px) {
+      width: 375px;
+      height: 72px;
+      left: 0;
+      top: 0;
+      
+      &__nav {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 72px);
+        flex-direction: column;
+        padding: 20px;
+        
+        &--active {
+          display: flex;
+        }
+      }
+  
+      &__burger {
+        display: block;
+        width: 40px;
+        height: 40px;
+        
+        span {
+          display: block;
+          width: 20px;
+          height: 2px;
+          margin: 4px 0;
+        }
+      }
+    }
+  }
+  

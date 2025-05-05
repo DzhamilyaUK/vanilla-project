@@ -1,0 +1,23 @@
+mixin news-card(props={})
+    -
+        var {
+                date = '30 января',
+                place = 'Университет',
+                pictureUrl,
+                title = 'Заголовок новости',
+                href = '#',
+                tag = 'article',
+        } = props
+
+    #{tag}.news-card
+        .news-card__cover
+            img(
+                src=pictureUrl,
+                alt=title
+            )
+        a.news-card__headline(href=href)!= title
+        .news-card__info
+            .news-card__info-item!= date
+            .news-card__info-item!= place
+
+                           
