@@ -1,8 +1,13 @@
 .cards-list {
   margin: 3rem;
-  min-height: 56.4rem;
-  width: 44rem;
-  background-color: gray;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: gray;
+  gap: 1.6rem;
+
+  @include tablet {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .event-card {
@@ -73,13 +78,13 @@
     background: var(--card-color);
 
     &__day {
-      font: 700 40px / 1.2 "Onest", sans-serif;
+      font: 700 4rem / 1.2 "Onest", sans-serif;
       color: var(--ultramarine-default-color);
       text-align: center;
     }
 
     &__month {
-      font: 400 14px / 1.42857 "Inter", sans-serif;
+      font: 400 1.4rem / 1.42857 "Inter", sans-serif;
       color: var(--text-secondary-color);
     }
 

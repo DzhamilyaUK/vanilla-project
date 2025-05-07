@@ -10,11 +10,15 @@ mixin edu-material-card(props={})
         } = props
 
     #{tag}.edu-material-card
-        .edu-material-card__type!= type
         .edu-material-card__cover
+            .edu-material-card__type!= type
             img(
                 src=pictureUrl,
                 alt=title
             )
-        a.edu-material-card__headline(href=href)!= title
-        .edu-material-card__desc!= desc
+        .edu-material-card__content
+            a.edu-material-card__headline(href=href)!= title
+            .edu-material-card__desc!= desc
+
+
+

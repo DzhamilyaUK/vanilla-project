@@ -9,7 +9,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 3.2rem;
   padding: 1.6rem;
 
   height: 100%;
@@ -41,27 +41,33 @@
   &__type {
     position: absolute;
     z-index: 3;
-    top: 4rem;
-    left: 4rem;
+    top: 2.4rem;
+    left: 2.4rem;
 
     display: flex;
     justify-content: center;
 
     border-radius: 1.6rem;
-    padding: 0.8rem;
+    padding: 0.8rem 1.2rem;
 
-    font: 500 16px / 1.5 "Onest", sans-serif;
+    font: 500 1.6rem / 1.5 "Onest", sans-serif;
     color: #1f2733;
 
     background: white;
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 0 1.6rem 1.6rem;
+  }
+
   &__headline {
     @include text-h4;
     color: var(--text-color);
-    padding: 1.6rem 1.2rem 0rem;
 
-    font: 700 32px / 1.25 "Onest", sans-serif;
+    font: 700 3.2rem / 1.25 "Onest", sans-serif;
     color: #1f2733;
 
     &:hover {
@@ -77,9 +83,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 0rem 1.6rem 1.6rem 1.6rem;
 
-    font: 400 18px / 1.44444 "Inter", sans-serif;
+    font: 400 1.8rem / 1.44444 "Inter", sans-serif;
     color: #7a818d;
 
     @include text-body;
