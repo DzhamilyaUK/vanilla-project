@@ -15,12 +15,18 @@
         justify-content: flex-start;
         flex-direction: row;
         gap: 4rem;
-        
+
+
+        &-link-with-icon {
+            display: inline-flex;
+            gap: 0.8rem;
+        }
     }
 
 
     &__contacts {
         display: flex;
+        position: relative;
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: row;
@@ -32,6 +38,24 @@
         }
 
         &-link {
+            display: flex;
+            position: relative;
+            align-items: center;
+            gap: 0.8rem;
+            
+            &:hover {
+                svg path {
+                    fill: #7a818d;
+                    stroke: #7a818d;
+                }
+
+                .tooltip {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+            }
+
 
         }
     }
@@ -42,6 +66,13 @@
         justify-content: flex-start;
         flex-direction: row;
         gap: 2rem;
+
+        a:hover {
+            svg path {
+                fill: #7a818d;
+                stroke: #7a818d;
+            }
+        }
     }
 
     &-copyright {
@@ -52,7 +83,36 @@
         padding: 2.4rem 4rem;
     }
 
+}
 
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 1.2rem);
+    left: 0;
+    background: #FFFFFF;
+    box-shadow: 0 0 5rem 0 rgba(31, 39, 51, 0.08);
+    border-radius: 1.2rem;
+    padding: 8px;
+    min-width: 21rem ;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+    transform: translateY(10px);
+    
 
+    &__position {
+        display: block;
+        font: 500 1.2rem / 1.33333 "Inter", sans-serif;
+        color: #1f2733;
+        
+    }
+
+    &__name {
+        display: block;
+        font: 500 1.2rem / 1.33333 "Inter", sans-serif;
+        color: #1f2733;
+        
+    }
 
 }

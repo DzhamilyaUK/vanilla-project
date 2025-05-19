@@ -1,25 +1,26 @@
-header
-    .header
-        a(href="#")
-            img(src="svg/logotype_GoUp.svg" alt="Логотип")
-        nav
-            ul.header__nav
-                li.header__nav-item
-                    a(href="#").header__nav-link О платформе
-                li.header__nav-item
-                    a(href="#").header__nav-link Мероприятия
-                li.header__nav-item
-                    a(href="#").header__nav-link Новости
-                li.header__nav-item
-                    a(href="#").header__nav-link Образовательные материалы
-                li.header__nav-item
-                    a(href="#").header__nav-link Вопросы
-                li.header__nav-item
-                    a(href="#").header__nav-link Контакты      
-        .header__controls
-            a(href='#').header__user-btn
-              span.header__user-btn-icon
+include ../components/dropdown.pug
+
+header.header
+    a(href="#")
+        img(src="svg/logotype_GoUp.svg" alt="Логотип")
+    nav
+        ul.header__nav
+            +dropdown('О платформе', [
+                { text: 'Университет', href: '#' },
+                { text: 'Точка кипения', href: '#' }
+            ])
+            li.header__nav-item
+                a(href="#").header__nav-link Мероприятия
+            li.header__nav-item
+                a(href="#").header__nav-link Новости
+            li.header__nav-item
+                a(href="#").header__nav-link Образовательные материалы
+            li.header__nav-item
+                a(href="#").header__nav-link Вопросы
+            li.header__nav-item
+                a(href="#").header__nav-link Контакты
+    .header__controls
+        a(href='#').header__user-btn
+            span.header__user-btn-icon
                 include ../../assets/icons/user.svg
-            // TODO добавить кнопку бургер-меню
-            button.header__menu-btn Кнопка бургера
-            //-.burger-menu(role="button") ☰
+        button.header__menu-btn Кнопка бургера

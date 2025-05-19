@@ -13,10 +13,13 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
+
         gap: 1.6rem;
         list-style: none;
        
       &-item {
+        position: relative;
+        padding: 1.2rem;
         font: 500 16px / 1.5 "Onest", sans-serif;
         color: #1f2733;
       }
