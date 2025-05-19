@@ -1,62 +1,62 @@
-mixin dropdown(buttonText, items)
+mixin dropdown(props={})
+  - var { text } = props
   .dropdown.js-dropdown
     button.dropdown__button(
       type="button"
       aria-expanded="false"
       aria-controls="dropdown-menu"
     ) 
-      span.dropdown__button-text= buttonText
+      span.dropdown__button-text= text
       svg.dropdown__arrow(width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg")
         path(d="M4.5 6L8.5 10L12.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
-    ul.dropdown__menu#dropdown-menu(aria-hidden="true")
-      each item in items
-        li.dropdown__item
-          a.dropdown__link(href=item.href, tabindex="-1")= item.text
+    .dropdown__viewbox
+      .dropdown__card
+        block
 
   //- Скрипт добавляется только при первом вызове миксина
-  if !dropdownScriptIncluded
-    script.
-      document.addEventListener('DOMContentLoaded', () => {
-        const dropdowns = document.querySelectorAll('.js-dropdown');
-        let closeTimeout;
-
-        const toggleMenu = (dropdown, isOpen) => {
-          const button = dropdown.querySelector('.dropdown__button');
-          const menu = dropdown.querySelector('.dropdown__menu');
-          const links = dropdown.querySelectorAll('.dropdown__link');
-
-          button.setAttribute('aria-expanded', isOpen);
-          menu.setAttribute('aria-hidden', !isOpen);
-          links.forEach(link => link.setAttribute('tabindex', isOpen ? '0' : '-1'));
-          
-          if(isOpen) {
-            menu.style.display = 'block';
-          } else {
-            setTimeout(() => menu.style.display = 'none', 500);
-          }
-        }
-
-        dropdowns.forEach(dropdown => {
-          const button = dropdown.querySelector('.dropdown__button');
-          
-          button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = button.getAttribute('aria-expanded') === 'true';
-            toggleMenu(dropdown, !isOpen);
-          });
-
-          dropdown.addEventListener('mouseenter', () => clearTimeout(closeTimeout));
-          dropdown.addEventListener('mouseleave', () => {
-            closeTimeout = setTimeout(() => toggleMenu(dropdown, false), 300);
-          });
-        });
-
-        document.addEventListener('click', (e) => {
-          if(!e.target.closest('.js-dropdown')) {
-            document.querySelectorAll('.js-dropdown [aria-expanded="true"]').forEach(btn => {
-              toggleMenu(btn.closest('.js-dropdown'), false);
-            });
-          }
-        });
-      });
-    - var dropdownScriptIncluded = true;
+  //if !dropdownScriptIncluded
+  //  script.
+  //    document.addEventListener('DOMContentLoaded', () => {
+  //      const dropdowns = document.querySelectorAll('.js-dropdown');
+  //      let closeTimeout;
+  //
+  //      const toggleMenu = (dropdown, isOpen) => {
+  //        const button = dropdown.querySelector('.dropdown__button');
+  //        const menu = dropdown.querySelector('.dropdown__menu');
+  //        const links = dropdown.querySelectorAll('.dropdown__link');
+  //
+  //        button.setAttribute('aria-expanded', isOpen);
+  //        menu.setAttribute('aria-hidden', !isOpen);
+  //        links.forEach(link => link.setAttribute('tabindex', isOpen ? '0' : '-1'));
+  //
+  //        if(isOpen) {
+  //          menu.style.display = 'block';
+  //        } else {
+  //          setTimeout(() => menu.style.display = 'none', 500);
+  //        }
+  //      }
+  //
+  //      dropdowns.forEach(dropdown => {
+  //        const button = dropdown.querySelector('.dropdown__button');
+  //
+  //        button.addEventListener('click', (e) => {
+  //          e.stopPropagation();
+  //          const isOpen = button.getAttribute('aria-expanded') === 'true';
+  //          toggleMenu(dropdown, !isOpen);
+  //        });
+  //
+  //        dropdown.addEventListener('mouseenter', () => clearTimeout(closeTimeout));
+  //        dropdown.addEventListener('mouseleave', () => {
+  //          closeTimeout = setTimeout(() => toggleMenu(dropdown, false), 300);
+  //        });
+  //      });
+  //
+  //      document.addEventListener('click', (e) => {
+  //        if(!e.target.closest('.js-dropdown')) {
+  //          document.querySelectorAll('.js-dropdown [aria-expanded="true"]').forEach(btn => {
+  //            toggleMenu(btn.closest('.js-dropdown'), false);
+  //          });
+  //        }
+  //      });
+  //    });
+  //  - var dropdownScriptIncluded = true;

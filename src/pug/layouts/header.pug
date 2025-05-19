@@ -5,10 +5,16 @@ header.header
         img(src="svg/logotype_GoUp.svg" alt="Логотип")
     nav
         ul.header__nav
-            +dropdown('О платформе', [
-                { text: 'Университет', href: '#' },
-                { text: 'Точка кипения', href: '#' }
-            ])
+            +dropdown({ text: 'О платформе' })
+                -
+                    var items = [
+                        {text: 'Университет', href: '#'},
+                        {text: 'Точка кипения', href: '#'}
+                    ]
+                ul.menu-list#dropdown-menu(aria-hidden="true")
+                    each item in items
+                        li.menu-list__item
+                            a.menu-list__item-link(href=item.href)= item.text
             li.header__nav-item
                 a(href="#").header__nav-link Мероприятия
             li.header__nav-item

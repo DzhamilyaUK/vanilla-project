@@ -1,113 +1,69 @@
 .dropdown {
   position: relative;
-  font-family: inherit;
-  color: #333;
 
   &__button {
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 1.2rem;
     gap: 0.8rem;
     font: inherit;
     color: inherit;
-    width: 100%;
     background-color: transparent;
     border: none;
     border-radius: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover,
-    &:focus-visible {
+    .open & {
       color: #5747ff;
       background: #e3e5ec;
-      transform: translateY(-1px);
-      outline: none;
 
       .dropdown__arrow {
-        path {
-          stroke: #5747ff;
-        }
+        color: inherit;
       }
-    }
-
-    &[aria-expanded="true"] {
-      background-color: #e3e5ec;
-    }
-  }
-
-  &__menu {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.4rem;
-    padding: 0.8rem;
-    position: absolute;
-    width: 21rem;
-    top: calc(100% + 0.5rem);
-    left: -1.2rem;
-
-    border-radius: 4px;
-    box-shadow: 0 0 50px 0 rgba(31, 39, 51, 0.08);
-    background: #fff;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
-    z-index: 100;
-    border-radius: 1.2rem;
-    
-  }
-
-  &__item {
-    transition: background-color 0.2s ease;
-    list-style-type: none;
-
-  }
-
-  &__link {
-    display: block;
-    border-radius: 0.8rem;
-    margin: 0px;
-    padding: 0.8rem;
-    color: currentColor;
-    text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-
-    &:hover,
-    &:focus-visible {
-      background-color: #f0f2f8;
-      transform: translateX(0.5rem);
-      outline: none;
-    }
-
-    &[tabindex="-1"] {
-      pointer-events: none;
     }
   }
 
   &__arrow {
+    width: 1.6rem;
+    height: 1.6rem;
     flex-shrink: 0;
     color: #95a0b2;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    .open & {
+      transform: rotate(180deg);
+    }
 
     path {
-      transition: stroke 0.3s ease;
+      stroke: currentColor;
     }
   }
 
-  // Открытое состояние
-  &[data-state="open"] &__menu,
-  [aria-expanded="true"] + &__menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
+  &__viewbox {
+    position: absolute;
+    width: 21rem;
+    top: calc(100% + 0.8rem);
+    left: -2px;
+    z-index: 2;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+
+    .open & {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
   }
 
-  // Анимация при закрытии
-  &[data-state="closing"] &__menu {
-    opacity: 0;
-    transform: translateY(-1rem);
+  &__card {
+    border-radius: 1.2rem;
+    box-shadow: 0 0 50px 0 rgba(31, 39, 51, 0.08);
+    background: #fff;
+    padding: 0.8rem;
   }
 }
