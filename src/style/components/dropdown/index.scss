@@ -46,7 +46,7 @@
     position: absolute;
     width: 21rem;
     top: calc(100% + 0.8rem);
-    left: -2px;
+    left: -8px;
     z-index: 2;
     transition: opacity 0.3s ease, transform 0.3s ease;
     transform: translateY(10px);
@@ -67,3 +67,27 @@
     padding: 0.8rem;
   }
 }
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+
+  &__item {
+
+    :hover {
+      background-color: #f0f2f8;;
+    }
+
+    &-link{
+      display: block;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+
+    }
+  }
+
+}
+
+

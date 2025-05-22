@@ -1,40 +1,79 @@
 .footer {
+    font: 500 16px / 1.5 "Onest", sans-serif;
+    width: 1360px;
+    margin: 0rem 2rem;
+    gap: 2.4rem;
+
+    &-content{
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-
     border-radius: 3.2rem;
-    padding: 3.2rem;
+    padding: 2.8rem;
     background-color: aliceblue;
 
+    a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        img {
+            display: block;
+        }
+
+        svg {
+            display: block;
+            flex-shrink: 0;
+        }
+    }
 
     &__nav {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-direction: row;
-        gap: 4rem;
+        gap: 1.6rem;
+
+        &-link {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        
 
 
-        &-link-with-icon {
-            display: inline-flex;
-            gap: 0.8rem;
+        &-with-icon {
+            gap: 0.8rem; 
         }
+        }
+
+
+        &-item {
+
+        }
+
+        &-logo{
+            margin-right: 1.6rem;
+        }
+
+
+
     }
 
 
     &__contacts {
         display: flex;
         position: relative;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-start;
         flex-direction: row;
-        gap: 2rem;
+        gap: 1.6rem;
 
 
         &-item {
-
+            display: flex;
+            align-items: center;
+            position: relative;
         }
 
         &-link {
@@ -42,7 +81,14 @@
             position: relative;
             align-items: center;
             gap: 0.8rem;
+
+            svg {
+                flex-shrink: 0; 
+                width: 24px;   
+                height: 25px;
+            }
             
+
             &:hover {
                 svg path {
                     fill: #7a818d;
@@ -64,22 +110,36 @@
         align-items: center;
         justify-content: flex-start;
         flex-direction: row;
-        gap: 2rem;
+        gap: 1.6rem;
 
-        a:hover {
-            svg path {
-                fill: #7a818d;
-                stroke: #7a818d;
+        > a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            svg {
+                display: block;
+                flex-shrink: 0;
             }
         }
-    }
 
+    }
+    }
     &-copyright {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
-        padding: 2.4rem 4rem;
+        //padding: 2.4rem 2.4rem;
+
+        font: 500 12px / 1.33333 "Inter", sans-serif;
+        color: #7a818d;
+
+        svg {
+            display: block;
+            flex-shrink: 0;
+        }
     }
 
 }
