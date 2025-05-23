@@ -1,111 +1,109 @@
 .header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width:144rem;
-    margin: 0 auto;
-    padding: 3.2rem 4rem;
+  @include text-caption ;
+  color: var(--text-color);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 3.2rem 4rem; 
 
-    > a {
+  > a {
       display: block;
 
       img {
-        display: block;
-        height: 3.8rem;
+          display: block;
+          height: 100%;
       }
-    }
-    
-    &__nav {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
+  }
 
-        gap: 1.6rem;
-        list-style: none;
-       
+  &__nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 1.6rem; 
+      list-style: none;
+
       &-item {
-        position: relative;
-        padding: 1.2rem;
-        color: #1f2733;
+          position: relative;
+          padding: 1.2rem; 
       }
 
       &-link {
-        text-decoration: none;
+          text-decoration: none;
+          color: inherit;
       }
-    }
-  
-        
-    // Стили для пользовательской иконки
-    &__user-btn {
+  }
+
+  &__user-btn {
       display: block;
-      width: 4rem;
-      height: 4rem;
+      height: 100%;
 
       @include tablet {
-        display: none;
+          display: none;
       }
 
-        background-color: transparent;
-        border: none;
+      background-color: transparent;
+      border: none;
 
       &-icon {
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-        
-        svg {
+          display: block;
           width: 100%;
           height: 100%;
-          border: 1.5px solid white;
-        }
+          border-radius: 0.8rem; 
+          
+          svg {
+              width: 100%;
+              height: 100%;
+              border: 0.15rem solid var(--text-contrast-filled-color); 
+          }
       }
-    }
+  }
 
-    &__menu-btn {
+  &__menu-btn {
       display: none;
 
       @include tablet {
-        display: block;
+          display: block;
       }
-    }
-  
-    // Мобильная версия
-    @media (max-width: 768px) {
-      width: 375px;
-      height: 72px;
+  }
+
+  @include mobile {
+      width: 37.5rem; 
+      height: 7.2rem; 
       left: 0;
       top: 0;
       
       &__nav {
-        display: none;
-        position: fixed;
-        top: 72px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 72px);
-        flex-direction: column;
-        padding: 20px;
-        
-        &--active {
-          display: flex;
-        }
+          display: none;
+          position: fixed;
+          top: 7.2rem; 
+          left: 0;
+          width: 100%;
+          height: calc(100vh - 7.2rem); 
+          flex-direction: column;
+          padding: 2rem; 
+          background-color: var(--card-color);
+
+          &--active {
+              display: flex;
+          }
       }
-  
+
       &__burger {
-        display: block;
-        width: 40px;
-        height: 40px;
-        
-        span {
           display: block;
-          width: 20px;
-          height: 2px;
-          margin: 4px 0;
-        }
+          width: 4rem; 
+          height: 4rem; 
+          
+          span {
+              display: block;
+              width: 2rem;
+              height: 0.2rem;
+              margin: 0.4rem 0; 
+              background-color: var(--text-color);
+          }
       }
-    }
   }
-  
+}

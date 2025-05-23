@@ -1,121 +1,28 @@
 .footer {
-    font: 500 16px / 1.5 "Onest", sans-serif;
-    width: 1360px;
-    margin: 0rem 2rem;
+    @include text-body-small; 
+    display: flex;
+    flex-direction: column;
+    max-width: 136rem; 
+    margin: 0 2rem;
     gap: 2.4rem;
 
-    &-content{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: 3.2rem;
-    padding: 2.8rem;
-    background-color: aliceblue;
-
-    a {
+    &-content {
         display: flex;
         align-items: center;
-        height: 100%;
-
-        img {
-            display: block;
-        }
-
-        svg {
-            display: block;
-            flex-shrink: 0;
-        }
-    }
-
-    &__nav {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
         flex-direction: row;
-        gap: 1.6rem;
+        justify-content: space-between;
+        border-radius: 3.2rem;
+        padding: 2.8rem;
+        background-color: var(--gray-color-2); 
 
-        &-link {
+        a {
             display: flex;
             align-items: center;
             height: 100%;
-        
 
-
-        &-with-icon {
-            gap: 0.8rem; 
-        }
-        }
-
-
-        &-item {
-
-        }
-
-        &-logo{
-            margin-right: 1.6rem;
-        }
-
-
-
-    }
-
-
-    &__contacts {
-        display: flex;
-        position: relative;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: row;
-        gap: 1.6rem;
-
-
-        &-item {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        &-link {
-            display: flex;
-            position: relative;
-            align-items: center;
-            gap: 0.8rem;
-
-            svg {
-                flex-shrink: 0; 
-                width: 24px;   
-                height: 25px;
+            img {
+                display: block;
             }
-            
-
-            &:hover {
-                svg path {
-                    fill: #7a818d;
-                }
-
-                .tooltip {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateY(0);
-                }
-            }
-
-
-        }
-    }
-
-    &__social {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: row;
-        gap: 1.6rem;
-
-        > a {
-            display: flex;
-            align-items: center;
-            height: 100%;
 
             svg {
                 display: block;
@@ -123,55 +30,126 @@
             }
         }
 
+        &__nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            gap: 1.6rem;
+
+            &-link {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                color: var(--text-color);
+
+                &-with-icon {
+                    gap: 0.8rem;
+                }
+            }
+
+            &-logo {
+                margin-right: 1.6rem;
+            }
+        }
+
+        &__contacts {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            gap: 1.6rem;
+
+            &-item {
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+
+            &-link {
+                display: flex;
+                position: relative;
+                align-items: center;
+                gap: 0.8rem;
+                color: var(--text-color);
+
+                svg {
+                    flex-shrink: 0;
+                    width: 2.4rem; 
+                    height: 2.5rem; 
+                }
+
+                &:hover {
+                    svg path {
+                        fill: var(--text-secondary-color);
+                    }
+
+                    .tooltip {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+
+        &__social {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            gap: 1.6rem;
+
+            > a {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                color: var(--text-color);
+
+                svg {
+                    display: block;
+                    flex-shrink: 0;
+                }
+            }
+        }
     }
-    }
+
     &-copyright {
+        @include text-caption;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
-        //padding: 2.4rem 2.4rem;
-
-        font: 500 12px / 1.33333 "Inter", sans-serif;
-        color: #7a818d;
+        color: var(--text-secondary-color);
 
         svg {
             display: block;
             flex-shrink: 0;
         }
     }
-
 }
 
 .tooltip {
     position: absolute;
     bottom: calc(100% + 1.2rem);
     left: 0;
-    background: #FFFFFF;
-    box-shadow: 0 0 5rem 0 rgba(31, 39, 51, 0.08);
+    background: var(--card-color);
+    box-shadow: 0 0 0.5rem 0 rgba(31, 39, 51, 0.08);
     border-radius: 1.2rem;
-    padding: 8px;
-    min-width: 21rem ;
+    padding: 0.8rem;
+    min-width: 21rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 10;
-    transform: translateY(10px);
-    
+    transform: translateY(1rem);
 
-    &__position {
-        display: block;
-        font: 500 1.2rem / 1.33333 "Inter", sans-serif;
-        color: #1f2733;
-        
-    }
-
+    &__position,
     &__name {
+        @include text-caption;
         display: block;
-        font: 500 1.2rem / 1.33333 "Inter", sans-serif;
-        color: #1f2733;
-        
+        color: var(--text-color);
     }
-
 }

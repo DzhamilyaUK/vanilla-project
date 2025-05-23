@@ -5,22 +5,25 @@
   width: 4.8rem;
   height: 4.8rem;
   padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(var(--text-contrast-filled-color), 0.2);
   border: none;
   border-radius: 1.6rem;
   cursor: pointer;
   transition: all 0.35s ease;
-  @media (min-width: 1024px) {
+  
+  @include from-tablet {
     &:hover:not(.--disabled) {
-      background: #5747ff;;
+      background: var(--ultramarine-light-1-color);
     }
   }
+
   &:active:not(.--disabled) {
-    background: rgba(255, 255, 255, 0.2);;
+    background: rgba(var(--text-contrast-filled-color), 0.2);
     transform: scale(0.95);
+    
     svg {
       path {
-          fill: white; 
+        fill: var(--text-contrast-filled-color); 
       }
     }
   }
