@@ -1,137 +1,197 @@
 .footer {
-    @include text-body-small; 
+    @include text-body-small;
     display: flex;
     flex-direction: column;
-    max-width: 136rem; 
+    max-width: 136rem;
     margin: 0 2rem;
     gap: 2.4rem;
-
+  
     &-content {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      border-radius: 3.2rem;
+      padding: 2.8rem;
+      background-color: var(--gray-color-2);
+  
+      a {
         display: flex;
         align-items: center;
-        flex-direction: row;
-        justify-content: space-between;
-        border-radius: 3.2rem;
-        padding: 2.8rem;
-        background-color: var(--gray-color-2); 
-
-        a {
-            display: flex;
-            align-items: center;
-            height: 100%;
-
-            img {
-                display: block;
-            }
-
-            svg {
-                display: block;
-                flex-shrink: 0;
-            }
+        height: 100%;
+  
+        img {
+          display: block;
         }
-
-        &__nav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-direction: row;
-            gap: 1.6rem;
-
-            &-link {
-                display: flex;
-                align-items: center;
-                height: 100%;
-                color: var(--text-color);
-
-                &-with-icon {
-                    gap: 0.8rem;
-                }
-            }
-
-            &-logo {
-                margin-right: 1.6rem;
-            }
-        }
-
-        &__contacts {
-            display: flex;
-            position: relative;
-            align-items: center;
-            justify-content: flex-start;
-            flex-direction: row;
-            gap: 1.6rem;
-
-            &-item {
-                display: flex;
-                align-items: center;
-                position: relative;
-            }
-
-            &-link {
-                display: flex;
-                position: relative;
-                align-items: center;
-                gap: 0.8rem;
-                color: var(--text-color);
-
-                svg {
-                    flex-shrink: 0;
-                    width: 2.4rem; 
-                    height: 2.5rem; 
-                }
-
-                &:hover {
-                    svg path {
-                        fill: var(--text-secondary-color);
-                    }
-
-                    .tooltip {
-                        opacity: 1;
-                        visibility: visible;
-                        transform: translateY(0);
-                    }
-                }
-            }
-        }
-
-        &__social {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-direction: row;
-            gap: 1.6rem;
-
-            > a {
-                display: flex;
-                align-items: center;
-                height: 100%;
-                color: var(--text-color);
-
-                svg {
-                    display: block;
-                    flex-shrink: 0;
-                }
-            }
-        }
-    }
-
-    &-copyright {
-        @include text-caption;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
-        color: var(--text-secondary-color);
-
+  
         svg {
+          display: block;
+          flex-shrink: 0;
+        }
+      }
+
+      @include mobile {
+        gap: 1.6rem;
+      }
+  
+      &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 1.6rem;
+  
+        &-link {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          color: var(--text-color);
+  
+          &-with-icon {
+            gap: 0.8rem;
+          }
+        }
+  
+        &-logo {
+          margin-right: 1.6rem;
+        }
+      }
+  
+      &__contacts {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 1.6rem;
+  
+        &-item {
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+  
+        &-link {
+          display: flex;
+          position: relative;
+          align-items: center;
+          gap: 0.8rem;
+          color: var(--text-color);
+  
+          svg {
+            flex-shrink: 0;
+            width: 2.4rem;
+            height: 2.5rem;
+          }
+  
+          &:hover {
+            svg path {
+              fill: var(--text-secondary-color);
+            }
+  
+            .tooltip {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+  
+      &__social {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 1.6rem;
+  
+        > a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          color: var(--text-color);
+  
+          svg {
             display: block;
             flex-shrink: 0;
+          }
         }
+      }
+  
+      
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.6rem;
+        padding: 2.4rem;
+        border-radius: 3.2rem;
+  
+        &__nav {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.6rem;
+          width: 100%;
+  
+          &-logo {
+            margin-right: 0;
+            margin-bottom: 0.4rem;
+          }
+  
+          &-link {
+            height: auto;
+          }
+        }
+  
+        &__contacts {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.6rem;
+          width: 100%;
+  
+          &-link {
+            width: 100%;
+            justify-content: space-between;
+          }
+        }
+  
+        &__social {
+          width: 100%;
+          flex-wrap: wrap;
+          gap: 1.6rem 1.4rem;
+        }
+      }
     }
-}
+  
+    &-copyright {
+      @include text-caption;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      color: var(--text-secondary-color);
+  
+      img {
+        display: block;
+        height: 100%;
+        flex-shrink: 0;
+      }
+  
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 1.6rem;
 
-.tooltip {
+        img {
+          height: 1.6rem;
+        }
+      }
+    }
+  }
+  
+ 
+  .tooltip {
     position: absolute;
     bottom: calc(100% + 1.2rem);
     left: 0;
@@ -145,11 +205,27 @@
     transition: all 0.3s ease;
     z-index: 10;
     transform: translateY(1rem);
-
+  
     &__position,
     &__name {
-        @include text-caption;
-        display: block;
-        color: var(--text-color);
+      @include text-caption;
+      display: block;
+      color: var(--text-color);
     }
-}
+  }
+  
+  // Адаптация тултипов для мобилок
+  @include mobile {
+    .tooltip {
+      left: 50%;
+      transform: translateX(-50%) translateY(1rem);
+      min-width: 90vw;
+  
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  
+  

@@ -1,16 +1,20 @@
 .header {
-  @include text-caption ;
+  //@include text-caption ;
+  font: 500 16px / 1.5 "Onest", sans-serif;
   color: var(--text-color);
   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  background-color: var(--app-bg);
+  
   max-width: 144rem;
   margin: 0 auto;
   padding: 3.2rem 4rem; 
 
   > a {
       display: block;
+      
 
       img {
           display: block;
@@ -23,6 +27,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: row;
+      flex-shrink: 0;
       gap: 1.6rem; 
       list-style: none;
 
@@ -64,6 +69,10 @@
 
   &__menu-btn {
       display: none;
+      border-radius: 12px;
+      padding: 10px;
+      border-color: transparent;
+      background: #fff;
 
       @include tablet {
           display: block;
@@ -72,9 +81,19 @@
 
   @include mobile {
       width: 37.5rem; 
-      height: 7.2rem; 
+      height: 7.2rem;
+      padding: 1.6rem 1.2rem; 
       left: 0;
       top: 0;
+
+      > a {
+             
+          img {
+            display: block;
+            width: 9rem;
+            height: 2.7rem;
+        }
+    }
       
       &__nav {
           display: none;
